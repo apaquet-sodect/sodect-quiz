@@ -1,0 +1,73 @@
+<style>
+    .box{
+        width:100px;
+        height:100px;
+        margin: 10px;
+        border: 4px solid #000;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: #fff;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+    .connectLines{
+        display: flex;
+        width: 100vw;
+        justify-content: space-between;
+        z-index: 1;
+        position: relative;
+    }
+    .from, .to{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 0;
+    }
+    .arrow{
+        border: 2px solid black;
+        background: black;
+        pointer-events: none;
+        position: absolute;
+    }
+    .arrow.lineHide{
+        visibility:hidden;
+    }
+    .arrow.correct{
+        border: 2px solid green;
+        background: green;
+    }
+
+</style>
+<div class="connectLines">
+    <div class="from">
+        <div class="box boxfrom" data-key="castor">Castor</div>
+        <div class="box boxfrom" data-key="lievre">Lièvre</div>
+        <div class="box boxfrom" data-key="loup">Loup</div>
+        <div class="box boxfrom" data-key="ours">Ours</div>
+        <div class="box boxfrom" data-key="raton">Raton laveur</div>
+        <div class="box boxfrom" data-key="cerf">Cerf</div>
+    </div>
+
+    <div class="to">
+        <div class="box boxto" data-key="loup">Loup</div>
+        <div class="box boxto" data-key="ours">Ours</div>
+        <div class="box boxto" data-key="raton">Raton laveur</div>
+        <div class="box boxto" data-key="castor">Castor</div>
+        <div class="box boxto" data-key="lievre">Lièvre</div>
+        <div class="box boxto" data-key="cerf">Cerf</div>
+    </div>
+</div>
+
+<script src="./connect-lines.js"></script>
+<script>
+    ConnectLines.Init(".from > div")
+</script>
