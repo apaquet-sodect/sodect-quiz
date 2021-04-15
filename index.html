@@ -1,73 +1,107 @@
-<style>
-    .box{
-        width:100px;
-        height:100px;
-        margin: 10px;
-        border: 4px solid #000;
-        font-size: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: #fff;
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-         -khtml-user-select: none; /* Konqueror HTML */
-           -moz-user-select: none; /* Old versions of Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-                user-select: none; /* Non-prefixed version, currently
-                                      supported by Chrome, Edge, Opera and Firefox */
-    }
-    .connectLines{
-        display: flex;
-        width: 100vw;
-        justify-content: space-between;
-        z-index: 1;
-        position: relative;
-    }
-    .from, .to{
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 0;
-    }
-    .arrow{
-        border: 2px solid black;
-        background: black;
-        pointer-events: none;
-        position: absolute;
-    }
-    .arrow.lineHide{
-        visibility:hidden;
-    }
-    .arrow.correct{
-        border: 2px solid green;
-        background: green;
-    }
+<!DOCTYPE html>
+<html lang="fr">
 
-</style>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>title</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header>
+            <div  class="container">
+                <img src="./images/logo-maison-belisle.png" alt="Maison Belisle"/>
+                <h1>{{GetTitle}}</h1>
+            </div>
+        </header>
+        <main v-bind:class="capsule">
+            <div v-if="capsule=='menu'">
+                <div><a href="#" @click="capsule='seigneurie';game=1">La seigneurie</a></div>
+                <div><a href="#" @click="capsule='voyageurs';game=1">Les voyageurs</a></div>
+                <div><a href="#" @click="capsule='moulins';game=1">Les moulins</a></div>
+                <div><a href="#" @click="capsule='moderne';game=1">Terrebonne moderne</a></div>
+            </div>
+
+            <div class="container seigneurie game1" v-if="capsule=='seigneurie' && game==1">
+
+                <h2>Identifie les objets qui font partie du quotidien des habitants de la Nouvelle-France entre 1645 – 1763.</h2>
+                <div class="objects">
+                    <div v-for="item in games.seigneurie[0].objects" @click="CheckElementIsCorrect(item.name, $event)" v-bind:class="{guessed: item.guessed}">
+                        <img v-bind:src="'./assets/seigneurie-1/' + item.name + '.jpg'">
+
+                        <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+
+            <div v-if="capsule=='seigneurie' && game==2">
+                QUIZ HISTORIQUE
+            </div>
+
+
+            <div v-if="capsule=='seigneurie' && game==3">
+                Qui du seigneur ou des censitaires avait les droits et les obligations suivantes ?
+            </div>
+
+
+
+        </main>
+
+
+
+        <audio id="soundCorrect"><source src="./assets/sounds/success_2.mp3" type="audio/mp3"></audio>
+		<audio id="soundWrong"><source src="./assets/sounds/error_2.mp3" type="audio/mp3"></audio>
+
+    </div>
+
+
+
+    <script src="./scripts/vue.min.js"></script>
+    <script src="./scripts/connect-lines.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>
+
+
+<!-- agregarle clase 'animate' para animar -->
+<!-- <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+</svg> -->
+<!--
 <div class="connectLines">
     <div class="from">
-        <div class="box boxfrom" data-key="castor">Castor</div>
-        <div class="box boxfrom" data-key="lievre">Lièvre</div>
-        <div class="box boxfrom" data-key="loup">Loup</div>
-        <div class="box boxfrom" data-key="ours">Ours</div>
-        <div class="box boxfrom" data-key="raton">Raton laveur</div>
-        <div class="box boxfrom" data-key="cerf">Cerf</div>
+        <div class="box noselect boxfrom" data-key="castor">Castor</div>
+        <div class="box noselect boxfrom" data-key="lievre">Lièvre</div>
+        <div class="box noselect boxfrom" data-key="loup">Loup</div>
+        <div class="box noselect boxfrom" data-key="ours">Ours</div>
+        <div class="box noselect boxfrom" data-key="raton">Raton laveur</div>
+        <div class="box noselect boxfrom" data-key="cerf">Cerf</div>
     </div>
 
     <div class="to">
-        <div class="box boxto" data-key="loup">Loup</div>
-        <div class="box boxto" data-key="ours">Ours</div>
-        <div class="box boxto" data-key="raton">Raton laveur</div>
-        <div class="box boxto" data-key="castor">Castor</div>
-        <div class="box boxto" data-key="lievre">Lièvre</div>
-        <div class="box boxto" data-key="cerf">Cerf</div>
+        <div class="box noselect boxto" data-key="loup">Loup</div>
+        <div class="box noselect boxto" data-key="ours">Ours</div>
+        <div class="box noselect boxto" data-key="raton">Raton laveur</div>
+        <div class="box noselect boxto" data-key="castor">Castor</div>
+        <div class="box noselect boxto" data-key="lievre">Lièvre</div>
+        <div class="box noselect boxto" data-key="cerf">Cerf</div>
     </div>
-</div>
+</div> -->
 
-<script src="./connect-lines.js"></script>
-<script>
+
+<!-- <script>
     ConnectLines.Init(".from > div")
-</script>
+</script> -->

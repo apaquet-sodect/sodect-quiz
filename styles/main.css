@@ -1,0 +1,238 @@
+@font-face {
+  font-family: Moderat;
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Moderat-Regular.eot) format("eot"), url(fonts/Moderat-Regular.woff) format("woff"), url(fonts/Moderat-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: Moderat;
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/Moderat-Bold.eot) format("eot"), url(fonts/Moderat-Bold.woff) format("woff"), url(fonts/Moderat-Bold.woff2) format("woff2");
+}
+@font-face {
+  font-family: Moderat;
+  font-style: italic;
+  font-weight: 400;
+  src: url(fonts/Moderat-Regular-Italic.eot) format("eot"), url(fonts/Moderat-Regular-Italic.woff) format("woff"), url(fonts/Moderat-Regular-Italic.woff2) format("woff2");
+}
+@font-face {
+  font-family: 'Noe Display';
+  font-style: normal;
+  font-weight: 900;
+  src: url(fonts/Noe-Display-Black.eot) format("eot"), url(fonts/Noe-Display-Black.woff) format("woff");
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+h1 {
+  font-size: 3em;
+  text-align: right;
+  font-weight: bold;
+}
+h2 {
+  font-size: 2em;
+  margin-bottom: 50px;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+body,
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  text-decoration: underline;
+}
+header {
+  border: 6px solid #000000;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
+header .container img {
+  height: 100px;
+}
+main {
+  border: 6px solid #000000;
+  border-top: none;
+  flex-grow: 1;
+}
+main.menu > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+main.menu > div > * {
+  width: calc(50% - 6px);
+  height: calc(50% - 6px);
+  text-align: center;
+  font-size: 2em;
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main.menu > div > *:nth-of-type(1) {
+  background: #a5ea1b;
+}
+main.menu > div > *:nth-of-type(2) {
+  background: #f8375b;
+}
+main.menu > div > *:nth-of-type(3) {
+  background: #f2b120;
+}
+main.menu > div > *:nth-of-type(4) {
+  background: #a3c4e7;
+}
+main.seigneurie {
+  background: #a5ea1b;
+  padding: 20px 0;
+}
+main.seigneurie .game1 .objects {
+  width: calc(100% - (40px * 4));
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+}
+main.seigneurie .game1 .objects > div {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 6px solid #000;
+}
+main.seigneurie .game1 .objects > div:hover {
+  cursor: pointer;
+}
+main.seigneurie .game1 .objects > div .checkmark {
+  position: relative;
+  top: -160px;
+}
+main.seigneurie .game1 .objects > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 4px solid #000;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.connectLines {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  z-index: 1;
+  position: relative;
+}
+.from,
+.to {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+}
+.arrow {
+  border: 2px solid black;
+  background: black;
+  pointer-events: none;
+  position: absolute;
+}
+.arrow.lineHide {
+  visibility: hidden;
+}
+.arrow.correct {
+  border: 2px solid green;
+  background: green;
+}
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+}
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0 0 0 #7ac142;
+}
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+}
+.checkmark.animate {
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+.checkmark.animate .checkmark__circle {
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark.animate .checkmark__check {
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0 0 0 30px #7ac142;
+  }
+}

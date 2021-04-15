@@ -1,0 +1,288 @@
+@font-face {
+    font-family: Moderat;
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Moderat-Regular.eot) format("eot"),url(./fonts/Moderat-Regular.woff) format("woff"),url(./fonts/Moderat-Regular.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Moderat;
+    font-style: normal;
+    font-weight: 700;
+    src: url(./fonts/Moderat-Bold.eot) format("eot"),url(./fonts/Moderat-Bold.woff) format("woff"),url(./fonts/Moderat-Bold.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Moderat;
+    font-style: italic;
+    font-weight: 400;
+    src: url(./fonts/Moderat-Regular-Italic.eot) format("eot"),url(./fonts/Moderat-Regular-Italic.woff) format("woff"),url(./fonts/Moderat-Regular-Italic.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: 'Noe Display';
+    font-style: normal;
+    font-weight: 900;
+    src: url(./fonts/Noe-Display-Black.eot) format("eot"),url(./fonts/Noe-Display-Black.woff) format("woff")
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+@border-width: 6px;
+// colores
+@verde: #A5EA1B;
+@rojo: #F8375B;
+@naranja: #F2B120;
+@azul: #A3C4E7;
+
+h1{
+    // font-family: "Noe Display","Calisto MT","Bookman Old Style",Bookman,"Goudy Old Style",Garamond,"Hoefler Text","Bitstream Charter",Georgia,serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 3em;
+    text-align: right;
+    font-weight: bold;
+}
+h2{
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 1200px;
+     }
+}
+
+body,html{
+    font-family:  Helvetica,Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+header{
+    border: @border-width solid black;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10px;
+        img{
+            height: 100px;
+        }
+    }
+}
+
+@main-padding: 20px 0;
+main{
+    border: @border-width solid black;
+    border-top: none;
+    flex-grow: 1;
+
+    .container{
+    }
+
+    &.menu{
+        & > div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            & > *{
+                width: calc(~"50% - 6px");
+                height: calc(~"50% - 6px");
+                text-align: center;
+                font-size: 2em;
+
+                border: 3px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:nth-of-type(1){
+                    background: @verde;
+                }
+                &:nth-of-type(2){
+                    background: @rojo;
+                }
+                &:nth-of-type(3){
+                    background: @naranja;
+                }
+                &:nth-of-type(4){
+                    background: @azul;
+                }
+            }
+
+        }
+    }
+    &.seigneurie{
+        background: @verde;
+        padding: @main-padding;
+
+        .game1{
+            .objects{
+                width: calc(~"100% - (40px * 4)");
+                display: grid;
+                grid-template-columns: repeat(5, 20%);
+                grid-column-gap: 20px;
+                grid-row-gap: 40px;
+                & > div{
+                    background: #fff;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    aspect-ratio: 1;
+                    overflow: hidden;
+                    border: 6px solid #000;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    .checkmark{
+                        position: relative;
+                        top: -160px;
+                    }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// .seigneurie{
+//
+// }
+
+
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 4px solid #000;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+}
+.noselect{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.connectLines {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    z-index: 1;
+    position: relative;
+}
+
+.from,
+.to {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 0;
+}
+
+.arrow {
+    border: 2px solid black;
+    background: black;
+    pointer-events: none;
+    position: absolute;
+}
+
+.arrow.lineHide {
+    visibility: hidden;
+}
+
+.arrow.correct {
+    border: 2px solid green;
+    background: green;
+}
+// Checkmarck animation
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #7ac142;
+    fill: none;
+}
+
+.checkmark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 10% auto;
+    box-shadow: inset 0 0 0 #7ac142;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+}
+
+.checkmark.animate {
+    animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark.animate .checkmark__circle {
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark.animate .checkmark__check {
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes scale {
+    0%,
+    100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+@keyframes fill {
+    100% {
+        box-shadow: inset 0 0 0 30px #7ac142;
+    }
+}
+// Checkmarck animation

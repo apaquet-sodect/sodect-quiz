@@ -1,3 +1,5 @@
+// by gonzalo moiguer
+// gonzamoiguer.com
 var ConnectLines = {
     mousePos: {x: 0, y: 0},
     currKey : "",
@@ -39,7 +41,6 @@ var ConnectLines = {
     },
 
     Draw: function(){
-        console.log(Date.now())
         var _this = this;
         if(_this.isDrawingLine){
             let fromRect = _this.drawingFrom.getBoundingClientRect()
@@ -62,6 +63,9 @@ var ConnectLines = {
     // ConnectLines.Init(".from > div")
     Init:function(fromsQuery){
         var _this = this;
+        this.isDrawingLine = false
+        this.myData = {}
+        this.requestId = null
         // updated mouse position
         document.onmousemove = (event) => {
             var eventDoc, doc, body;
