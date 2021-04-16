@@ -7,21 +7,25 @@
     <title>title</title>
 
     <link rel="stylesheet" type="text/css" href="styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles/animate4.1.1.min.css" />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
 
 </head>
 
 <body>
 
+    <audio id="soundCorrect"><source src="./assets/sounds/success_2.mp3" type="audio/mp3"></audio>
+    <audio id="soundWrong"><source src="./assets/sounds/error_2.mp3" type="audio/mp3"></audio>
+
     <div id="app">
 
         <header>
-            <div  class="container">
-                <img src="./images/logo-maison-belisle.png" alt="Maison Belisle"/>
+            <div class="container">
+                <img @click="MainMenu" src="./images/logo-maison-belisle.png" alt="Maison Belisle"/>
                 <h1>{{GetTitle}}</h1>
             </div>
         </header>
-        <main v-bind:class="capsule">
+        <main v-bind:class="capsule" v-bind:style="{ right: message.show ? '100vw' : '0px' }">
             <div v-if="capsule=='menu'">
                 <div><a href="#" @click="capsule='seigneurie';game=1">La seigneurie</a></div>
                 <div><a href="#" @click="capsule='voyageurs';game=1">Les voyageurs</a></div>
@@ -45,23 +49,49 @@
             </div>
 
 
-            <div v-if="capsule=='seigneurie' && game==2">
-                QUIZ HISTORIQUE
+            <div class="seigneurie game2" v-if="capsule=='seigneurie' && game==2" >
+                <div class="questions" v-bind:style="{width: games.seigneurie[1].objects.length * 100 + 'vw', left: games.seigneurie[1].question * -100 + 'vw'}">
+                    <div v-for="item in games.seigneurie[1].objects" class="question">
+                        <div class="container">
+                            Question: {{item.q}}
+                            <br>
+                            <a href="#" @click="NextQuestion">Next -></a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
-            <div v-if="capsule=='seigneurie' && game==3">
-                Qui du seigneur ou des censitaires avait les droits et les obligations suivantes ?
+            <div class="seigneurie game3" v-if="capsule=='seigneurie' && game==3">
+
+                <div class="questions" v-bind:style="{width: games.seigneurie[2].objects.length * 100 + 'vw', left: games.seigneurie[2].question * -100 + 'vw'}">
+                    <div v-for="item in games.seigneurie[2].objects" class="question">
+                        <div class="container">
+                            Question: {{item.q}}
+                            <br>
+                            <a href="#" @click="NextQuestion('seigneur')">Seigneur</a>
+                            <a href="#" @click="NextQuestion('censitaire')">Censitaire</a>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
 
 
         </main>
 
+        <div id="message"  v-bind:style="{ right: message.show ? '0vw' : '-100vw' }">
+            <div class="container">
+                <h1>{{message.title}}</h1>
+                <a href="#" @click="NextJeux()">Next -></a>
+            </div>
+        </div>
 
 
-        <audio id="soundCorrect"><source src="./assets/sounds/success_2.mp3" type="audio/mp3"></audio>
-		<audio id="soundWrong"><source src="./assets/sounds/error_2.mp3" type="audio/mp3"></audio>
+
+
 
     </div>
 

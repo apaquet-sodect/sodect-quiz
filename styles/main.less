@@ -65,6 +65,7 @@ h2{
 
 body,html{
     font-family:  Helvetica,Arial, sans-serif;
+    overflow: hidden;
 }
 
 a{
@@ -84,6 +85,9 @@ header{
         padding: 20px 10px;
         img{
             height: 100px;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
 }
@@ -93,6 +97,10 @@ main{
     border: @border-width solid black;
     border-top: none;
     flex-grow: 1;
+
+    transition: 1s right;
+    right: 0vw;
+    position: relative;
 
     .container{
     }
@@ -164,6 +172,28 @@ main{
                 }
             }
         }
+
+        .game2{
+            .questions{
+                display: flex;
+                position: relative;
+                transition: left .3s;
+            }
+            .question{
+                width: 100vw;
+            }
+        }
+
+        .game3{
+            .questions{
+                display: flex;
+                position: relative;
+                transition: left .3s;
+            }
+            .question{
+                width: 100vw;
+            }
+        }
     }
 }
 
@@ -171,7 +201,14 @@ main{
 //
 // }
 
-
+#message{
+    transition: .7s right;
+    position: absolute;
+    height: calc(~"100vh - 12px");
+    width: calc(~"100vw - 12px");
+    background: white;
+    border: 6px solid black;
+}
 
 .box {
     width: 100px;
