@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>title</title>
+    <title>JEUX INTERACTIFS</title>
 
     <link rel="stylesheet" type="text/css" href="styles/reset.css" />
     <link rel="stylesheet" type="text/css" href="styles/animate4.1.1.min.css" />
@@ -120,6 +120,19 @@
                 </div>
             </div>
 
+
+            <div class="voyageurs game1" v-show="capsule=='voyageurs' && game==1">
+                <div class="connectLines">
+                    <div class="linesContainer" >
+                    </div>
+                    <div class="from">
+                        <div class="box noselect boxfrom" v-for="item in games.voyageurs[0].objects" :data-key="item.name" >{{item.title}}</div>
+                    </div>
+                    <div class="to">
+                        <div class="box noselect boxto"  v-for="item in games.voyageurs[0].objects" :data-key="item.name" >{{item.title}}</div>
+                    </div>
+                </div>
+            </div>
 
 
         </main>

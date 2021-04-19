@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             games: {
                 menu: [{
-                    title: "Jeux interactifs"
+                    title: "JEUX INTERACTIFS"
                 }],
                 seigneurie: [
                     {
@@ -218,7 +218,148 @@ document.addEventListener("DOMContentLoaded", () => {
                             },
                         ]
                     }
-                ]
+                ],
+
+                moulins: [
+                    {
+                        title:"LES MOULINS DE TERREBONNE",
+                        connectLines: null,
+                        objects:[
+                            {
+                                name: "farin",
+                                title: "Moudre le blé"
+                            },{
+                                name: "carder",
+                                title: "Faire de la laine "
+                            },{
+                                name: "scie",
+                                title: "Couper du bois"
+                            }
+                        ]
+                    },{
+                        title:"coso",
+                        connectLines: null,
+                        objects:[
+                            {
+                                name: "bleue",
+                                title: "Plante d’indigo"
+                            },{
+                                name: "brune",
+                                title: "Écorce d’arbre"
+                            },{
+                                name: "jaune",
+                                title: "Pissenlit"
+                            },{
+                                name: "rouge",
+                                title: "Cochenille"
+                            }
+                        ]
+                    },{
+                        title:"RÉGIME SEIGNEURIAL OU MUNICIPAL",
+                        winMessage: this.moulinsJeu3Win,
+                        score: 0,
+                        question : 0,
+                        objects:[
+                            {q: "Le maire", r: "régime municipal"},
+                            {q: "Les censitaires", r: "régime seigneurial"},
+                            {q: "Le cens et les rentes", r: "régime seigneurial" },
+                            {q: "Les taxes", r: "régime municipal"},
+                            {q: "Une élection", r:"régime municipal" },
+                            {q: "Les corvées", r: "régime seigneurial"}
+                        ]
+                    }
+                ],
+
+                moderne: [
+                    {
+                        title:"L’INDENCIE DE 1922",
+                        winMessage: "Ganaste el 3er jeugo",
+                        objects:[
+                            {
+                                name: "Boucherie",
+                                title: "Boucherie Ouimet",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "Limoges",
+                                title: "Manufacture Limoges",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "maison",
+                                title: "Maison Bélisle",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "quincaillerie",
+                                title: "La quincaillerie",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "bibliotheque",
+                                title: "La bibliothèque",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "hotel",
+                                title: "L’hôtel de Ville",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "theatre",
+                                title: "Le Théâtre du Vieux-Terrebonne",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "pharmacie",
+                                title: "La pharmacie",
+                                correct: true,
+                                guessed: false
+                            },
+                        ]
+                    },{
+                        title:"CARRÉ AUX DATES",
+                        connectLines: null,
+                        objects:[
+                            {
+                                name: "bleue",
+                                title: "Éclairage au gaz",
+                                year: 1885
+                            },{
+                                name: "bleue",
+                                title: "Électrification",
+                                year: 1890
+                            },{
+                                name: "bleue",
+                                title: "Installation du téléphone",
+                                year: 1893
+                            },{
+                                name: "bleue",
+                                title: "Incendie du Vieux-Terrebonne",
+                                year: 1922
+                            },{
+                                name: "bleue",
+                                title: "Terrains de camping puis parc de maisons mobiles sur l’Île-des-Moulins",
+                                year: 1967
+                            },{
+                                name: "bleue",
+                                title: "L’Île-des-Moulins devient Site historique",
+                                year: 1973
+                            },
+                        ]
+                    },{
+                        title:"DEUX VÉRITÉS ET UN MENSONGE",
+                        score: 0,
+                        question : 0,
+                        objects:[
+                            {r: "Un jeu d’évasion", other: ["Une boîte à chanson", "Une bibliothèque"]},
+                            {r: "Une centrale hydroélectrique", other: ["Un terrain de camping", "Un bureau seigneurial"]},
+                            {r: "Une station de ski", other: ["Une boulangerie", "Une manufacture de matelas"]},
+                            {r: "Un moulin à papier", other: ["Un moulin à scie", "Un moulin à farine"]},
+                            {r: "Moulin à vent", other: ["Moulin à réaction", "Moulin à aubes"]},
+                        ]
+                    }
+                ],
 
             }
         },

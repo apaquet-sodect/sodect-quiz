@@ -200,6 +200,14 @@ main.voyageurs .game3 .objects > div .title {
   text-align: center;
   user-select: none;
 }
+main.moulins {
+  background: #f2b120;
+  padding: 20px 0;
+}
+main.moderne {
+  background: #a3c4e7;
+  padding: 20px 0;
+}
 .questions {
   display: flex;
   position: relative;
