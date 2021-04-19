@@ -63,7 +63,6 @@
 
 
             <div class="seigneurie game3" v-if="capsule=='seigneurie' && game==3">
-
                 <div class="questions" v-bind:style="{width: games.seigneurie[2].objects.length * 100 + 'vw', left: games.seigneurie[2].question * -100 + 'vw'}">
                     <div v-for="item in games.seigneurie[2].objects" class="question">
                         <div class="container">
@@ -74,8 +73,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+
 
             <div class="voyageurs game1" v-show="capsule=='voyageurs' && game==1">
                 <div class="connectLines">
@@ -90,19 +89,33 @@
                 </div>
             </div>
 
+
             <div class="voyageurs game2" v-show="capsule=='voyageurs' && game==2">
-                questions
                 <div class="questions" v-bind:style="{width: games.voyageurs[1].objects.length * 100 + 'vw', left: games.voyageurs[1].question * -100 + 'vw'}">
                     <div v-for="item in games.voyageurs[1].objects" class="question">
                         <div class="container">
                             Question: {{item.q}}
                             <br>
-                            <a href="#">{{item.r}}</a>
-                            <a href="#">{{item.other[0]}}</a>
-                            <a href="#">{{item.other[1]}}</a>
-                            <!-- <a href="#" @click="NextQuestion('seigneur')">Seigneur</a>
-                            <a href="#" @click="NextQuestion('censitaire')">Censitaire</a> -->
+                            <div style="display:flex">
+                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.r)">{{item.r}}</a>
+                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[0])">{{item.other[0]}}</a>
+                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[1])">{{item.other[1]}}</a>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container voyageurs game3" v-if="capsule=='voyageurs' && game==3">
+                <h2>Identifie tous les emplois des hommes et des femmes de la Compagnie-du-Nord-Ouest.</h2>
+                <div class="objects">
+                    <div v-for="item in games.voyageurs[2].objects" @click="CheckElementIsCorrect(item.name, $event)" v-bind:class="{guessed: item.guessed}">
+                        <div class="title">{{item.title}}</div>
+                        <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
                     </div>
                 </div>
             </div>

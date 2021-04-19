@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                     // seigneurie Game #1 LES OBJETS DU QUOTIDIEN
                     title: "LES OBJETS DU QUOTIDIEN: NOUVELLE-FRANCE",
+                    winMessage: "Ganaste el primer juego",
                     objects: [
                         {
                             name: "auto",
@@ -148,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #2 TROQUE TON CASTOR
                         title: "TROQUE TON CASTOR",
+                        // winMessage: return this.voyageursJeu2Win,
                         score: 0,
                         question : 0,
                         objects:[
@@ -161,6 +163,60 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #3 LA COMPAGNIE DU NORD-OUEST
                         title: "LA COMPAGNIE DU NORD-OUEST",
+                        winMessage: "Ganaste el 3er jeugo",
+                        objects:[
+                            {
+                                name: "voyageurs",
+                                title: "Voyageurs",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "mangeur",
+                                title: "Mangeur lard",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "marmitonne",
+                                title: "Marmitonne",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "coureur",
+                                title: "Coureur des bois",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "homme",
+                                title: "Homme de l’Athabasca",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "plombier",
+                                title: "Plombier",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "marchand",
+                                title: "Marchand",
+                                correct: true,
+                                guessed: false
+                            },{
+                                name: "paysan",
+                                title: "Paysan",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "kayakiste",
+                                title: "Kayakiste",
+                                correct: false,
+                                guessed: false
+                            },{
+                                name: "bourgeois",
+                                title: "Bourgeois écossais (Beaver Club)",
+                                correct: true,
+                                guessed: false
+                            },
+                        ]
                     }
                 ]
 
@@ -175,8 +231,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     return this.games[this.capsule][this.game - 1].title
                 }
             },
-            seigneurieJeu3Win: function(){
-                return `Your score is ${this.games.seigneurie[2].score}/${this.games.seigneurie[2].objects.length}`
+
+            currQuizScore: function(){
+                let score = `${this.games[this.capsule][this.game - 1].score} / ${this.games[this.capsule][this.game - 1].objects.length}`
+                return `Your score is ${score}`
             }
 
         },
@@ -222,8 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     var self=this
                     setTimeout(function(){
-                        console.log("show!")
-                        self.message.title = "Ganaste el primer juego"
+                        self.message.title = self.games[self.capsule][self.game - 1].winMessage
                         self.message.show = true
                     }, 1200)
                 }
@@ -241,9 +298,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 let currCuestion =  this.games[this.capsule][this.game - 1].question
                 if(currCuestion == cantQuestions-1){
                      // Game ended
-                     console.log("show!")
-                     if(this.capsule == "seigneurie" && app.game == 3){
-                         this.message.title = this.seigneurieJeu3Win
+                     if(this.games[this.capsule][this.game - 1].score !== undefined){
+                         this.message.title = this.currQuizScore
                      }else{
                          this.message.title = this.games[this.capsule][this.game - 1].winMessage
                      }
