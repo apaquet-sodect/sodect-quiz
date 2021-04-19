@@ -192,7 +192,25 @@
                         <div class="box noselect boxfrom" v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.year}}</div>
                     </div>
                     <div class="to">
-                        <div class="box noselect boxto"  v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.title}}</div>
+                        <div class="box noselect boxto"  v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.year}} {{item.title}}</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="moderne game3" v-show="capsule=='moderne' && game==3">
+                <div class="questions" v-bind:style="{width: games.moderne[2].objects.length * 100 + 'vw', left: games.moderne[2].question * -100 + 'vw'}">
+                    <div v-for="item in games.moderne[2].objects" class="question">
+                        <div class="container">
+                            Question: {{item.q}}
+                            <br>
+                            <div style="display:flex">
+                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.r)">{{item.r}} <</a>
+                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[0])">{{item.other[0]}}</a>
+                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[1])">{{item.other[1]}}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
