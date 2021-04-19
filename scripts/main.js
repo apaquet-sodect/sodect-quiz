@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 moulins: "#F2B120",
                 moderne: "#A3C4E7",
             },
+            btnEmoji: "",
             message:{
                 show: false,
                 title: "",
@@ -383,9 +384,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 return this.games[this.capsule][this.game-1]
             },
 
+            // btnEmoji: function(){
+            //     let possibleBtnEmojis = ["🙌","👌","🖖","👋"]
+            //     let rand = Math.floor(Math.random()*possibleBtnEmojis.length)
+            //     return
+            // }
+
+
         },
 
         watch: {
+            message: {
+                 handler(val){
+                   if(val.show){
+                       this.RandEmoji()
+                   }
+                 },
+                 deep: true
+             },
             game: function(val){
                 if( this.currGameData.connectLines !== undefined && this.currGameData.connectLines == null){
                     // Its an unitiliazied connect line game
@@ -406,6 +422,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         methods: {
+            RandEmoji(){
+                let possibleBtnEmojis = ["🙌","👌","🖖","👋","✊","👉","🔑","🇨🇦","🌚","🎃","👍","🤙","🎓"]
+                let rand = Math.floor(Math.random()*possibleBtnEmojis.length)
+                let emoji = possibleBtnEmojis[rand]
+                this.btnEmoji = ` " ${emoji}"`
+            },
 
             CheckElementIsCorrect(el, ev) {
                 let myObjects = this.currGameData.objects

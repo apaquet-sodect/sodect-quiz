@@ -214,19 +214,17 @@
                     </div>
                 </div>
             </div>
-
-
         </main>
 
         <div id="message"  v-bind:style="{ right: message.show ? '0vw' : '-100vw' }">
             <div class="container">
                 <h1>{{message.title}}</h1>
-                <a href="#" @click="NextJeux()">Next -></a>
+                <button class="login-btn" @click="NextJeux()" v-bind:style="{'background':colors[capsule],'--btnEmoji': btnEmoji}">Continuez </button>
+                <!-- <a href="#" @click="NextJeux()">Next -></a> -->
             </div>
         </div>
 
-
-    </div>
+    </div> <!-- APP -->
 
     <script src="./scripts/vue.min.js"></script>
     <script src="./scripts/connect-lines.js"></script>
