@@ -157,12 +157,42 @@
 
                     <div v-for="item in games.moulins[2].objects" class="question">
                         <div class="container">
-
                             {{item.q}}
                             <br>
                             <a href="#" @click="NextQuestion('régime municipal')">Régime municipal</a>
                             <a href="#" @click="NextQuestion('régime seigneurial')">Régime seigneurial</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container moderne game1" v-if="capsule=='moderne' && game==1">
+                <h2>Identifie tous les bâtiments de Terrebonne qui ont été touchés par l’incendie de 1922 :</h2>
+                <div class="objects">
+                    <div v-for="item in games.moderne[0].objects" @click="CheckElementIsCorrect(item.name, $event)" v-bind:class="{guessed: item.guessed}">
+                        <div class="title">{{item.title}}</div>
+                        <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="moderne game2" v-show="capsule=='moderne' && game==2">
+                <div class="connectLines">
+                    <div class="linesContainer" >
+                        <div id="test"></div>
+                    </div>
+                    <div class="from">
+                        <div class="box noselect boxfrom" v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.year}}</div>
+                    </div>
+                    <div class="to">
+                        <div class="box noselect boxto"  v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.title}}</div>
                     </div>
                 </div>
             </div>
@@ -178,12 +208,7 @@
         </div>
 
 
-
-
-
     </div>
-
-
 
     <script src="./scripts/vue.min.js"></script>
     <script src="./scripts/connect-lines.js"></script>
@@ -191,35 +216,3 @@
 </body>
 
 </html>
-
-
-<!-- agregarle clase 'animate' para animar -->
-<!-- <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-  <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-</svg> -->
-<!--
-<div class="connectLines">
-    <div class="from">
-        <div class="box noselect boxfrom" data-key="castor">Castor</div>
-        <div class="box noselect boxfrom" data-key="lievre">Lièvre</div>
-        <div class="box noselect boxfrom" data-key="loup">Loup</div>
-        <div class="box noselect boxfrom" data-key="ours">Ours</div>
-        <div class="box noselect boxfrom" data-key="raton">Raton laveur</div>
-        <div class="box noselect boxfrom" data-key="cerf">Cerf</div>
-    </div>
-
-    <div class="to">
-        <div class="box noselect boxto" data-key="loup">Loup</div>
-        <div class="box noselect boxto" data-key="ours">Ours</div>
-        <div class="box noselect boxto" data-key="raton">Raton laveur</div>
-        <div class="box noselect boxto" data-key="castor">Castor</div>
-        <div class="box noselect boxto" data-key="lievre">Lièvre</div>
-        <div class="box noselect boxto" data-key="cerf">Cerf</div>
-    </div>
-</div> -->
-
-
-<!-- <script>
-    ConnectLines.Init(".from > div")
-</script> -->

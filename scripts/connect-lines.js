@@ -46,11 +46,13 @@ function ConnectLines(parentEl){
         this.isDrawingLine = true
     },
 
+    this.test = document.getElementById("test")
     this.Draw = function(){
+
         var _this = this;
         if(_this.isDrawingLine){
             let fromRect = _this.drawingFrom.getBoundingClientRect()
-            let data = _this.GetStyleData(fromRect.x+fromRect.width-5, fromRect.y+(fromRect.width/2), _this.mousePos.x, _this.mousePos.y)
+            let data = _this.GetStyleData(fromRect.x+fromRect.width-10, fromRect.y+(fromRect.height/2), _this.mousePos.x, _this.mousePos.y)
 
             var styles = 'width: ' + data.length + 'px; '
                        + 'height: 0px; '

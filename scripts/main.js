@@ -323,27 +323,27 @@ document.addEventListener("DOMContentLoaded", () => {
                         connectLines: null,
                         objects:[
                             {
-                                name: "bleue",
+                                name: "eclairage",
                                 title: "Éclairage au gaz",
                                 year: 1885
                             },{
-                                name: "bleue",
+                                name: "electrification",
                                 title: "Électrification",
                                 year: 1890
                             },{
-                                name: "bleue",
+                                name: "telephone",
                                 title: "Installation du téléphone",
                                 year: 1893
                             },{
-                                name: "bleue",
+                                name: "incendie",
                                 title: "Incendie du Vieux-Terrebonne",
                                 year: 1922
                             },{
-                                name: "bleue",
+                                name: "camping",
                                 title: "Terrains de camping puis parc de maisons mobiles sur l’Île-des-Moulins",
                                 year: 1967
                             },{
-                                name: "bleue",
+                                name: "moulins",
                                 title: "L’Île-des-Moulins devient Site historique",
                                 year: 1973
                             },
