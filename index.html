@@ -29,12 +29,12 @@
             <div v-if="capsule=='menu'">
                 <div><a href="#" @click="capsule='seigneurie';game=1">LE RÉGIME SEIGNEURIAL</a></div>
                 <div><a href="#" @click="capsule='voyageurs';game=1">LES VOYAGEURS</a></div>
-                <div><a href="#" @click="capsule='moulins';game=1">Les moulins</a></div>
-                <div><a href="#" @click="capsule='moderne';game=1">Terrebonne moderne</a></div>
+                <div><a href="#" @click="capsule='moulins';game=1">LES MOULINS</a></div>
+                <div><a href="#" @click="capsule='moderne';game=1">TERREBONNE MODERNE</a></div>
             </div>
 
-            <div class="container seigneurie game1" v-if="capsule=='seigneurie' && game==1">
 
+            <div class="container seigneurie game1" v-if="capsule=='seigneurie' && game==1">
                 <h2>Identifie les objets qui font partie du quotidien des habitants de la Nouvelle-France entre 1645 – 1763.</h2>
                 <div class="objects">
                     <div v-for="item in games.seigneurie[0].objects" @click="CheckElementIsCorrect(item.name, $event)" v-bind:class="{guessed: item.guessed}">
@@ -121,15 +121,48 @@
             </div>
 
 
-            <div class="voyageurs game1" v-show="capsule=='voyageurs' && game==1">
+            <div class="moulins game1" v-show="capsule=='moulins' && game==1">
                 <div class="connectLines">
                     <div class="linesContainer" >
                     </div>
                     <div class="from">
-                        <div class="box noselect boxfrom" v-for="item in games.voyageurs[0].objects" :data-key="item.name" >{{item.title}}</div>
+                        <div class="box noselect boxfrom" v-for="item in games.moulins[0].objects" :data-key="item.name" >{{item.title}}</div>
                     </div>
                     <div class="to">
-                        <div class="box noselect boxto"  v-for="item in games.voyageurs[0].objects" :data-key="item.name" >{{item.title}}</div>
+                        <div class="box noselect boxto"  v-for="item in games.moulins[0].objects" :data-key="item.name" >{{item.title}}</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="moulins game2" v-show="capsule=='moulins' && game==2">
+                <div class="connectLines">
+                    <div class="linesContainer" >
+                    </div>
+                    <div class="from">
+                        <div class="box noselect boxfrom" v-for="item in games.moulins[1].objects" :data-key="item.name" >{{item.title}}</div>
+                    </div>
+                    <div class="to">
+                        <div class="box noselect boxto"  v-for="item in games.moulins[1].objects" :data-key="item.name" >{{item.title}}</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="moulins game3" v-if="capsule=='moulins' && game==3">
+                <div class="container">
+                    <h2>Déterminez si les éléments appartiennent au régime seigneurial ou municipal.</h2>
+                </div>
+                <div class="questions" v-bind:style="{width: games.moulins[2].objects.length * 100 + 'vw', left: games.moulins[2].question * -100 + 'vw'}">
+
+                    <div v-for="item in games.moulins[2].objects" class="question">
+                        <div class="container">
+
+                            {{item.q}}
+                            <br>
+                            <a href="#" @click="NextQuestion('régime municipal')">Régime municipal</a>
+                            <a href="#" @click="NextQuestion('régime seigneurial')">Régime seigneurial</a>
+                        </div>
                     </div>
                 </div>
             </div>

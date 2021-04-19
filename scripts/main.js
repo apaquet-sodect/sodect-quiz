@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, {
                     // seigneurie Game #3
                     title: "SEIGNEUR OU CENSITAIRE?",
-                    winMessage: this.seigneurieJeu3Win,
                     score: 0,
                     question : 0,
                     objects:[
@@ -123,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #1 À CHACUN SA FOURRURE
                         title: "À CHACUN SA FOURRURE",
+                        winMessage: "Ganaste el conectar las lineas",
                         connectLines: null,
                         objects:[
                             {
@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #2 TROQUE TON CASTOR
                         title: "TROQUE TON CASTOR",
-                        // winMessage: return this.voyageursJeu2Win,
                         score: 0,
                         question : 0,
                         objects:[
@@ -223,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 moulins: [
                     {
                         title:"LES MOULINS DE TERREBONNE",
+                        winMessage: "holi",
                         connectLines: null,
                         objects:[
                             {
@@ -238,6 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ]
                     },{
                         title:"coso",
+                        winMessage: "",
                         connectLines: null,
                         objects:[
                             {
@@ -256,7 +257,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         ]
                     },{
                         title:"RÉGIME SEIGNEURIAL OU MUNICIPAL",
-                        winMessage: this.moulinsJeu3Win,
                         score: 0,
                         question : 0,
                         objects:[
@@ -319,6 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ]
                     },{
                         title:"CARRÉ AUX DATES",
+                        winMessage: "",
                         connectLines: null,
                         objects:[
                             {
@@ -369,25 +370,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (this.capsule == "menu") {
                     return this.games.menu[0].title
                 } else {
-                    return this.games[this.capsule][this.game - 1].title
+                    return this.currGameData.title
                 }
             },
 
             currQuizScore: function(){
-                let score = `${this.games[this.capsule][this.game - 1].score} / ${this.games[this.capsule][this.game - 1].objects.length}`
+                let score = `${this.currGameData.score} / ${this.currGameData.objects.length}`
                 return `Your score is ${score}`
-            }
+            },
+
+            currGameData: function(){
+                return this.games[this.capsule][this.game-1]
+            },
 
         },
 
         watch: {
             game: function(val){
-                if(this.capsule == "voyageurs" && val == "1" && this.games.voyageurs[0].connectLines == null){
-                    this.games.voyageurs[0].connectLines = new ConnectLines(".voyageurs.game1 .connectLines")
+                if( this.currGameData.connectLines !== undefined && this.currGameData.connectLines == null){
+                    // Its an unitiliazied connect line game
+                    this.currGameData.connectLines = new ConnectLines(`.${this.capsule}.game${this.game} .connectLines`)
                     let self = this
-                    this.games.voyageurs[0].connectLines.parentEl.addEventListener("gameWon",function(){
+                    this.currGameData.connectLines.parentEl.addEventListener("gameWon",function(){
                         console.log("game won")
-                        self.game++
+                        SoundCorrect()
+                        setTimeout(function(){
+                            self.message.title = self.currGameData.winMessage
+                            self.message.show = true
+                        },300)
+
                     })
                 }
             }
@@ -395,8 +406,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         methods: {
+
             CheckElementIsCorrect(el, ev) {
-                let myObjects = this.games[this.capsule][this.game - 1].objects
+                let myObjects = this.currGameData.objects
                 let obj = myObjects.find(x => x.name == el)
 
                 let dom = ev.currentTarget
@@ -428,26 +440,26 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             NextQuestion: function(answer = ""){
                 if(answer != ""){
-                    let currQuestion = this.games[this.capsule][this.game - 1].question
-                    let correctAnswer = this.games[this.capsule][this.game - 1].objects[currQuestion].r
+                    let currQuestion = this.currGameData.question
+                    let correctAnswer = this.currGameData.objects[currQuestion].r
                     if(correctAnswer == answer){
                         console.log("correct!")
-                        this.games[this.capsule][this.game - 1].score++
+                        this.currGameData.score++
                     }
                 }
-                let cantQuestions = this.games[this.capsule][this.game - 1].objects.length
-                let currCuestion =  this.games[this.capsule][this.game - 1].question
+                let cantQuestions = this.currGameData.objects.length
+                let currCuestion =  this.currGameData.question
                 if(currCuestion == cantQuestions-1){
                      // Game ended
-                     if(this.games[this.capsule][this.game - 1].score !== undefined){
+                     if(this.currGameData.score !== undefined){
                          this.message.title = this.currQuizScore
                      }else{
-                         this.message.title = this.games[this.capsule][this.game - 1].winMessage
+                         this.message.title = this.currGameData.winMessage
                      }
                      this.message.show = true
 
                 }else{
-                    this.games[this.capsule][this.game - 1].question++
+                    this.currGameData.question++
                 }
 
             },
