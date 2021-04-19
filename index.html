@@ -27,8 +27,8 @@
         </header>
         <main v-bind:class="capsule" v-bind:style="{ right: message.show ? '100vw' : '0px' }">
             <div v-if="capsule=='menu'">
-                <div><a href="#" @click="capsule='seigneurie';game=1">La seigneurie</a></div>
-                <div><a href="#" @click="capsule='voyageurs';game=1">Les voyageurs</a></div>
+                <div><a href="#" @click="capsule='seigneurie';game=1">LE RÉGIME SEIGNEURIAL</a></div>
+                <div><a href="#" @click="capsule='voyageurs';game=1">LES VOYAGEURS</a></div>
                 <div><a href="#" @click="capsule='moulins';game=1">Les moulins</a></div>
                 <div><a href="#" @click="capsule='moderne';game=1">Terrebonne moderne</a></div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="objects">
                     <div v-for="item in games.seigneurie[0].objects" @click="CheckElementIsCorrect(item.name, $event)" v-bind:class="{guessed: item.guessed}">
                         <img v-bind:src="'./assets/seigneurie-1/' + item.name + '.jpg'">
-
+                        <div class="title">{{item.title}}</div>
                         <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                           <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
                           <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
@@ -71,11 +71,40 @@
                             <br>
                             <a href="#" @click="NextQuestion('seigneur')">Seigneur</a>
                             <a href="#" @click="NextQuestion('censitaire')">Censitaire</a>
-
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="voyageurs game1" v-show="capsule=='voyageurs' && game==1">
+                <div class="connectLines">
+                    <div class="linesContainer" >
+                    </div>
+                    <div class="from">
+                        <div class="box noselect boxfrom" v-for="item in games.voyageurs[0].objects" :data-key="item.name" >{{item.title}}</div>
+                    </div>
+                    <div class="to">
+                        <div class="box noselect boxto"  v-for="item in games.voyageurs[0].objects" :data-key="item.name" >{{item.title}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="voyageurs game2" v-show="capsule=='voyageurs' && game==2">
+                questions
+                <div class="questions" v-bind:style="{width: games.voyageurs[1].objects.length * 100 + 'vw', left: games.voyageurs[1].question * -100 + 'vw'}">
+                    <div v-for="item in games.voyageurs[1].objects" class="question">
+                        <div class="container">
+                            Question: {{item.q}}
+                            <br>
+                            <a href="#">{{item.r}}</a>
+                            <a href="#">{{item.other[0]}}</a>
+                            <a href="#">{{item.other[1]}}</a>
+                            <!-- <a href="#" @click="NextQuestion('seigneur')">Seigneur</a>
+                            <a href="#" @click="NextQuestion('censitaire')">Censitaire</a> -->
+                        </div>
+                    </div>
+                </div>
             </div>
 
 

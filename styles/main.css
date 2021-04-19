@@ -143,6 +143,14 @@ main.seigneurie .game1 .objects > div img {
   height: 100%;
   object-fit: contain;
 }
+main.seigneurie .game1 .objects > div .title {
+  position: relative;
+  top: -130px;
+  font-size: 2em;
+  text-align: center;
+  text-shadow: 0px 0px 5px white;
+  visibility: hidden;
+}
 main.seigneurie .game2 .questions {
   display: flex;
   position: relative;
@@ -193,6 +201,11 @@ main.seigneurie .game3 .question {
   justify-content: space-between;
   z-index: 1;
   position: relative;
+}
+.connectLines .linesContainer {
+  position: fixed;
+  top: 0;
+  pointer-events: none;
 }
 .from,
 .to {
