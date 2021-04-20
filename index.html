@@ -130,7 +130,7 @@
                     <div class="linesContainer" >
                     </div>
                     <div class="from">
-                        <div class="box noselect boxfrom" v-for="item in games.moulins[0].objects" :data-key="item.name" >{{item.title}}</div>
+                        <div class="box noselect boxfrom" v-for="item in games.moulins[0].objects" :data-key="item.name" ><img class="noselect" v-bind:src="'./assets/moulins-1/'+item.name+'.jpg'"></div>
                     </div>
                     <div class="to">
                         <div class="box noselect boxto"  v-for="item in games.moulins[0].objects" :data-key="item.name" >{{item.title}}</div>
@@ -147,7 +147,7 @@
                         <div class="box noselect boxfrom" v-for="item in games.moulins[1].objects" :data-key="item.name" >{{item.title}}</div>
                     </div>
                     <div class="to">
-                        <div class="box noselect boxto"  v-for="item in games.moulins[1].objects" :data-key="item.name" >{{item.title}}</div>
+                        <div class="box noselect boxto"  v-for="item in games.moulins[1].objects" :data-key="item.name" ><img class="noselect" v-bind:src="'./assets/moulins-2/'+item.name+'.jpg'"></div>
                     </div>
                 </div>
             </div>
@@ -161,10 +161,11 @@
 
                     <div v-for="item in games.moulins[2].objects" class="question">
                         <div class="container">
-                            {{item.q}}
-                            <br>
-                            <a href="#" @click="NextQuestion('régime municipal')">Régime municipal</a>
-                            <a href="#" @click="NextQuestion('régime seigneurial')">Régime seigneurial</a>
+                            <h2>{{item.q}}</h2>
+                            <div>
+                                <a href="#" @click="NextQuestion('régime municipal')">Régime municipal</a>
+                                <a href="#" @click="NextQuestion('régime seigneurial')">Régime seigneurial</a>
+                            </div>
                         </div>
                     </div>
                 </div>

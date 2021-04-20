@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         connectLines: null,
                         objects:[
                             {
-                                name: "farin",
+                                name: "farine",
                                 title: "Moudre le blé"
                             },{
                                 name: "carder",
@@ -403,12 +403,12 @@ document.addEventListener("DOMContentLoaded", () => {
                  deep: true
              },
             game: function(val){
-                if( this.currGameData.connectLines !== undefined && this.currGameData.connectLines == null){
+                if(this.capsule != "menu" && this.currGameData.connectLines !== undefined && this.currGameData.connectLines == null){
                     // Its an unitiliazied connect line game
                     this.currGameData.connectLines = new ConnectLines(`.${this.capsule}.game${this.game} .connectLines`)
                     let self = this
                     this.currGameData.connectLines.parentEl.addEventListener("gameWon",function(){
-                        console.log("game won")
+                        // console.log("game won")
                         SoundCorrect()
                         setTimeout(function(){
                             self.message.title = self.currGameData.winMessage
