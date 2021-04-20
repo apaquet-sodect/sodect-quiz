@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>JEUX INTERACTIFS</title>
 
+    <link rel="stylesheet" type="text/css" href="styles/spinner.css" />
     <link rel="stylesheet" type="text/css" href="styles/reset.css" />
     <link rel="stylesheet" type="text/css" href="styles/animate4.1.1.min.css" />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
@@ -21,6 +22,16 @@
     <audio id="soundPop3"><source src="./assets/sounds/tab_3.mp3" type="audio/mp3"></audio>
 
     <div id="app">
+        <div id="loading" v-bind:class="{hidden:loaded}">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+        </div>
 
         <header>
             <div class="container">
@@ -37,7 +48,7 @@
             </div>
 
 
-            <div class="container seigneurie game1" v-if="capsule=='seigneurie' && game==1">
+            <div class="container seigneurie game1" v-show="capsule=='seigneurie' && game==1">
                 <h2>Identifie les objets qui font partie du quotidien des habitants de la Nouvelle-France entre 1645 – 1763.</h2>
                 <div class="objects">
                     <div v-for="item in games.seigneurie[0].objects" @click="CheckElementIsCorrect(item.name, $event)" v-bind:class="{guessed: item.guessed}">

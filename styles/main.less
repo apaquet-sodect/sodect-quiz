@@ -25,6 +25,53 @@
     font-weight: 900;
     src: url(./fonts/Noe-Display-Black.eot) format("eot"),url(./fonts/Noe-Display-Black.woff) format("woff")
 }
+#loading{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 99;
+    animation: 7s multicolor infinite reverse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    transition: opacity 1s linear;
+  &.hidden{
+      animation : fadeout 800ms linear forwards;
+  }
+}
+@keyframes multicolor {
+    0% {
+        background: @verde;
+    }
+    25% {
+        background: @rojo;
+    }
+    50% {
+        background: @naranja;
+    }
+    75% {
+        background: @azul;
+    }
+    100% {
+        background: @verde;
+    }
+}
+
+@keyframes fadeout{
+  99%{
+    opacity : 0;
+    z-index: inherit;
+  }
+  100%{
+    opacity : 0;
+    z-index: -999;
+  }
+}
 
 #app{
     display: flex;

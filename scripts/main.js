@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     app = new Vue({
         el: '#app',
         data: {
+            loaded:false,
             capsule: "menu",
             game: 0,
             colors: {
@@ -509,7 +510,12 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         mounted: function() {
-            console.log("Vue mounted")
+            // console.log("Vue mounted")
+            var self=this
+            Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
+                console.log('images finished loading');
+                this.loaded=true
+            });
         }
 
     }) // app
