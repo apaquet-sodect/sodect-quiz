@@ -90,14 +90,19 @@ main.menu > div {
   align-items: center;
 }
 main.menu > div > * {
-  width: calc(50% - 6px);
-  height: calc(50% - 6px);
   text-align: center;
   font-size: 2em;
   border: 3px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: calc(100vw - 15px);
+  height: calc(25% - 4px);
+  transition: all .2s;
+}
+main.menu > div > *:hover {
+  text-decoration: none;
+  transform: scale(1.2);
 }
 main.menu > div > *:nth-of-type(1) {
   background: #a5ea1b;

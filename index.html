@@ -29,11 +29,17 @@
             </div>
         </header>
         <main v-bind:class="capsule" v-bind:style="{ right: message.show ? '100vw' : '0px' }">
-            <div v-if="capsule=='menu'">
+            <!-- <div v-if="capsule=='menu'">
                 <div><a href="#" @click="capsule='seigneurie';game=1">LE RÉGIME SEIGNEURIAL</a></div>
                 <div><a href="#" @click="capsule='voyageurs';game=1">LES VOYAGEURS</a></div>
                 <div><a href="#" @click="capsule='moulins';game=1">LES MOULINS</a></div>
                 <div><a href="#" @click="capsule='moderne';game=1">TERREBONNE MODERNE</a></div>
+            </div> -->
+            <div v-if="capsule=='menu'">
+                <a href="#" @click="capsule='seigneurie';game=1">LE RÉGIME SEIGNEURIAL</a>
+                <a href="#" @click="capsule='voyageurs';game=1">LES VOYAGEURS</a>
+                <a href="#" @click="capsule='moulins';game=1">LES MOULINS</a>
+                <a href="#" @click="capsule='moderne';game=1">TERREBONNE MODERNE</a>
             </div>
 
 
