@@ -8,6 +8,7 @@ function ConnectLines(parentEl){
     this.myData  = {},
     this.requestId = null,
     this.parentEl = document.querySelector(parentEl),
+    this.display = "vertical"
 
     this.eventGameWon = new Event('gameWon',{bubbles: true,cancelable: true});
 
@@ -46,13 +47,19 @@ function ConnectLines(parentEl){
         this.isDrawingLine = true
     },
 
-    this.test = document.getElementById("test")
     this.Draw = function(){
-
         var _this = this;
         if(_this.isDrawingLine){
+
             let fromRect = _this.drawingFrom.getBoundingClientRect()
-            let data = _this.GetStyleData(fromRect.x+fromRect.width-10, fromRect.y+(fromRect.height/2), _this.mousePos.x, _this.mousePos.y)
+            // console.log(fromRect)
+            let data;
+            if(this.display == "vertical"){
+                data = _this.GetStyleData(fromRect.x+fromRect.width-10, fromRect.y+(fromRect.height/2), _this.mousePos.x, _this.mousePos.y)
+            }else{
+                data = _this.GetStyleData(fromRect.x+(fromRect.width/2), fromRect.y + fromRect.height-10, _this.mousePos.x, _this.mousePos.y)
+            }
+
 
             var styles = 'width: ' + data.length + 'px; '
                        + 'height: 0px; '

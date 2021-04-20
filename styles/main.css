@@ -199,6 +199,11 @@ main.voyageurs {
   background: #f8375b;
   padding: 20px 0;
 }
+main.voyageurs .game1 .connectLines {
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-between;
+}
 main.voyageurs .game1 .from img {
   width: 100%;
   height: 100%;
@@ -215,6 +220,16 @@ main.voyageurs .game1 .to > div img {
   object-fit: cover;
   -webkit-user-drag: none;
   pointer-events: none;
+}
+main.voyageurs .game1 .box {
+  width: 150px;
+  height: 150px;
+}
+main.voyageurs .game1 .from,
+main.voyageurs .game1 .to {
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
 main.voyageurs .game2 .options {
   display: flex;
@@ -433,6 +448,7 @@ main.moderne .game2 .box {
   width: calc(100vw - 36px);
   background: white;
   border: 18px solid black;
+  z-index: 10;
 }
 #message > div {
   display: flex;
@@ -484,7 +500,6 @@ main.moderne .game2 .box {
 .box {
   width: 100px;
   height: 100px;
-  margin: 10px;
   border: 4px solid #000;
   font-size: 20px;
   display: flex;
@@ -511,7 +526,9 @@ main.moderne .game2 .box {
 .connectLines .linesContainer {
   position: fixed;
   top: 0;
+  left: 0;
   pointer-events: none;
+  transition: 1s left;
 }
 .from,
 .to {

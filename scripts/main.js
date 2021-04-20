@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         // Voyageurs Game #1 À CHACUN SA FOURRURE
                         title: "À CHACUN SA FOURRURE",
                         winMessage: "Ganaste el conectar las lineas",
+                        linesType: "horizontal",
                         connectLines: null,
                         objects:[
                             {
@@ -406,6 +407,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(this.capsule != "menu" && this.currGameData.connectLines !== undefined && this.currGameData.connectLines == null){
                     // Its an unitiliazied connect line game
                     this.currGameData.connectLines = new ConnectLines(`.${this.capsule}.game${this.game} .connectLines`)
+                    if(this.currGameData.linesType != undefined){
+                        this.currGameData.connectLines.display = this.currGameData.linesType
+                    }
                     let self = this
                     this.currGameData.connectLines.parentEl.addEventListener("gameWon",function(){
                         // console.log("game won")

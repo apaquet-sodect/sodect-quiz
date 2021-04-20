@@ -81,8 +81,11 @@
 
 
             <div class="voyageurs game1" v-show="capsule=='voyageurs' && game==1">
-                <div class="connectLines">
-                    <div class="linesContainer" >
+                <div class="container">
+                    <h2>À quel animal appartient cette fourrure ? </h2>
+                </div>
+                <div class="connectLines container">
+                    <div class="linesContainer" v-bind:style="{ left: message.show ? '-100vw' : '0px' }">
                     </div>
                     <div class="from">
                         <div class="box noselect boxfrom" v-for="item in games.voyageurs[0].objects" :data-key="item.name" ><img v-bind:src="'./assets/voyageurs-1/animaux/'+item.name+'.jpeg'"></div>
@@ -127,7 +130,7 @@
 
             <div class="moulins game1" v-show="capsule=='moulins' && game==1">
                 <div class="connectLines">
-                    <div class="linesContainer" >
+                    <div class="linesContainer"  v-bind:style="{ left: message.show ? '-100vw' : '0px' }">
                     </div>
                     <div class="from">
                         <div class="box noselect boxfrom" v-for="item in games.moulins[0].objects" :data-key="item.name" ><img class="noselect" v-bind:src="'./assets/moulins-1/'+item.name+'.jpg'"></div>
@@ -141,7 +144,7 @@
 
             <div class="moulins game2" v-show="capsule=='moulins' && game==2">
                 <div class="connectLines">
-                    <div class="linesContainer" >
+                    <div class="linesContainer"  v-bind:style="{ left: message.show ? '-100vw' : '0px' }">
                     </div>
                     <div class="from">
                         <div class="box noselect boxfrom" v-for="item in games.moulins[1].objects" :data-key="item.name" >{{item.title}}</div>
@@ -190,14 +193,13 @@
 
             <div class="moderne game2" v-show="capsule=='moderne' && game==2">
                 <div class="connectLines">
-                    <div class="linesContainer" >
-                        <div id="test"></div>
+                    <div class="linesContainer"  v-bind:style="{ left: message.show ? '-100vw' : '0px' }">
                     </div>
                     <div class="from">
                         <div class="box noselect boxfrom" v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.year}}</div>
                     </div>
                     <div class="to">
-                        <div class="box noselect boxto"  v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.year}} {{item.title}}</div>
+                        <div class="box noselect boxto"  v-for="item in games.moderne[1].objects" :data-key="item.name" >{{item.title}}</div>
                     </div>
                 </div>
             </div>

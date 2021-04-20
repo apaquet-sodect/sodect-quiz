@@ -235,6 +235,11 @@ main{
         background: @rojo;
         padding: 20px 0;
         .game1{
+            .connectLines{
+                flex-direction: column;
+                height: 50vh;
+                justify-content: space-between;
+            }
             .from img{
                 width: 100%;
                 height: 100%;
@@ -251,6 +256,15 @@ main{
                     -webkit-user-drag: none;
                     pointer-events: none;
                 }
+            }
+            .box {
+                width: 150px;
+                height: 150px;
+            }
+            .from, .to{
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
             }
         }
         .game2{
@@ -491,6 +505,7 @@ main{
     width: calc(~"100vw - 36px");
     background: white;
     border: 18px solid black;
+    z-index: 10;
     & > div{
         display: flex;
         flex-direction: column;
@@ -544,7 +559,6 @@ main{
 .box {
     width: 100px;
     height: 100px;
-    margin: 10px;
     border: 4px solid #000;
     font-size: 20px;
     display: flex;
@@ -571,7 +585,9 @@ main{
     .linesContainer{
         position: fixed;
         top: 0;
+        left: 0;
         pointer-events: none;
+        transition: 1s left;
     }
 }
 
