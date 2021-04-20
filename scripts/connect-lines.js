@@ -131,11 +131,14 @@ function ConnectLines(parentEl){
                 let droppedKey = e.target.dataset.key;
                 if(_this.currKey == droppedKey){
                     // console.log("Correct")
+                    SoundCorrect()
                     _this.myData[_this.currKey].line.classList.add("correct")
                     _this.myData[_this.currKey].from.classList.add("correct")
                     _this.myData[_this.currKey].to.classList.add("correct")
                     _this.myData[_this.currKey].guessed = true
                     _this.CheckAllGuessed()
+                }else{
+                    SoundPop()
                 }
             }
             _this.isDrawingLine = false

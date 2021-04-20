@@ -377,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             currQuizScore: function(){
                 let score = `${this.currGameData.score} / ${this.currGameData.objects.length}`
-                return `Your score is ${score}`
+                return `Ton score est ${score}`
             },
 
             currGameData: function(){
@@ -465,7 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let currQuestion = this.currGameData.question
                     let correctAnswer = this.currGameData.objects[currQuestion].r
                     if(correctAnswer == answer){
-                        console.log("correct!")
+                        // console.log("correct!")
                         this.currGameData.score++
                     }
                 }
@@ -473,6 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let currCuestion =  this.currGameData.question
                 if(currCuestion == cantQuestions-1){
                      // Game ended
+                     SoundCorrect()
                      if(this.currGameData.score !== undefined){
                          this.message.title = this.currQuizScore
                      }else{
@@ -481,6 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      this.message.show = true
 
                 }else{
+                    RandomSoundPop()
                     this.currGameData.question++
                 }
 
@@ -511,16 +513,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 let soundCorrect = document.getElementById("soundCorrect");
-
 function SoundCorrect() {
     soundCorrect.currentTime=0
     soundCorrect.play();
 }
-let soundWrong = document.getElementById("soundWrong");
 
+let soundWrong = document.getElementById("soundWrong");
 function SoundWrong() {
     soundWrong.currentTime=0
     soundWrong.play();
+}
+
+let soundPop = document.getElementById("soundPop")
+function SoundPop(){
+    soundPop.currentTime = 0
+    soundPop.play()
+}
+
+let soundPop2 = document.getElementById("soundPop2")
+let soundPop3 = document.getElementById("soundPop3")
+function RandomSoundPop(){
+    let sounds = [soundPop,soundPop2,soundPop3]
+    let rSound = sounds[Math.floor(Math.random()*sounds.length)]
+    rSound.currentTime = 0
+    rSound.play()
 }
 
 const animateCSS = (element, animation, prefix = 'animate__') =>
