@@ -252,7 +252,35 @@ main{
                     pointer-events: none;
                 }
             }
+        }
+        .game2{
+            .options{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                height: 500px;
+                a{
+                    text-decoration: none;
+                    color: #000;
+                    border: 4px solid;
+                    padding: 20px;
+                    border-radius: 20px;
+                    font-size: 1.3em;
+                    background: #fff;
+                    width: 90%;
+                    transition: all .3s;
+                    &:hover{
+                        width: 95%;
+                        background: @naranja;
+                        color: #fff;
+                        border-color: #fff;
+                        text-decoration: none;
 
+                    }
+
+                }
+            }
         }
         .game3{
             .objects{
@@ -269,8 +297,10 @@ main{
                     aspect-ratio: 1;
                     overflow: hidden;
                     border: 6px solid #000;
+                    transition: all .2s;
                     &:hover{
                         cursor: pointer;
+                        border: 6px double #000;
                     }
                     .checkmark{
                         position: relative;

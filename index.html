@@ -98,9 +98,9 @@
                 <div class="questions" v-bind:style="{width: games.voyageurs[1].objects.length * 100 + 'vw', left: games.voyageurs[1].question * -100 + 'vw'}">
                     <div v-for="item in games.voyageurs[1].objects" class="question">
                         <div class="container">
-                            Question: {{item.q}}
+                            <h2>Question: {{item.q}}</h2>
                             <br>
-                            <div style="display:flex">
+                            <div class="options">
                                 <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.r)">{{item.r}}</a>
                                 <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[0])">{{item.other[0]}}</a>
                                 <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[1])">{{item.other[1]}}</a>
