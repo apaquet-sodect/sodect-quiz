@@ -48,6 +48,9 @@ h1{
 h2{
     font-size: 2em;
     margin-bottom: 50px;
+    & > span{
+        font-weight: bold;
+    }
 }
 
 
@@ -85,9 +88,15 @@ header{
         padding: 20px 10px;
         img{
             height: 100px;
+            opacity: 0;
+            transition: .3s;
+            &.visible{
+                opacity: 1;
+            }
             &:hover{
                 cursor: pointer;
             }
+
         }
     }
 }
@@ -101,9 +110,6 @@ main{
     transition: 1s right;
     right: 0vw;
     position: relative;
-
-    .container{
-    }
 
     &.menu{
         & > div{
@@ -163,29 +169,34 @@ main{
                     aspect-ratio: 1;
                     overflow: hidden;
                     border: 6px solid #000;
+                    position: relative;
+                    .title{
+                        position: absolute;
+                        top: 50%;
+                        width: 100%;
+                        font-size: 2em;
+                        text-align: center;
+                        text-shadow: 0px 0px 5px white;
+                        opacity: 0;
+                        transition: .9s;
+                    }
                     &:hover{
                         cursor: pointer;
                         .title{
-                            visibility: visible;
+                            opacity: 1;
+                            transition: .1s;
                         }
                     }
                     .checkmark{
-                        position: relative;
-                        top: -160px;
+                        position: absolute;
+                        top: 10%;
+                        left: 75px;
                     }
                     img{
                         width: 100%;
                         height: 100%;
                         object-fit: contain;
                         -webkit-user-drag: none;
-                    }
-                    .title{
-                        position: relative;
-                        top: -130px;
-                        font-size: 2em;
-                        text-align: center;
-                        text-shadow: 0px 0px 5px white; // TODO mejorar
-                        visibility: hidden
                     }
                 }
             }
@@ -202,6 +213,9 @@ main{
             svg{
                 width: 100px;
             }
+            h2{
+                font-size: 3em;
+            }
         }
 
         .game3{
@@ -209,9 +223,16 @@ main{
                 text-align: center;
                 display: flex;
                 flex-flow: column;
-                height: 600px;
+                height: 100%;
                 justify-content: space-evenly;
             }
+            .question{
+                height: 50vh;
+                h2{
+                    font-weight: bold;
+                }
+            }
+
             a{
                 width: 200px;
                 display: inline-block;
@@ -223,6 +244,7 @@ main{
                 transition: all .4s;
                 &:nth-of-type(1){
                     border-radius: 20px 0 0 20px;
+                    text-align: left;
                 }
                 &:nth-of-type(2){
                     border-radius: 0 20px 20px 0;
@@ -286,7 +308,7 @@ main{
                     border: 4px solid;
                     padding: 20px;
                     border-radius: 20px;
-                    font-size: 1.3em;
+                    font-size: 1.5em;
                     background: #fff;
                     width: 90%;
                     transition: all .3s;
@@ -359,6 +381,7 @@ main{
                 }
                 .to > div{
                     border-radius: 50%;
+                    font-size: 1.5em;
                 }
                 .from, .to{
                     justify-content: space-evenly;
@@ -389,6 +412,7 @@ main{
                 }
                 .from > div{
                     border-radius: 50%;
+                    font-size: 1.5em;
                 }
                 .from, .to{
                     justify-content: space-evenly;
@@ -419,6 +443,7 @@ main{
                 transition: all .4s;
                 &:nth-of-type(1){
                     border-radius: 20px 0 0 20px;
+                    text-align: left;
                 }
                 &:nth-of-type(2){
                     border-radius: 0 20px 20px 0;
@@ -456,6 +481,7 @@ main{
                     border: 6px solid #000;
                     &:hover{
                         cursor: pointer;
+                        border: 6px double #000;
                     }
                     .checkmark{
                         position: relative;
@@ -475,12 +501,54 @@ main{
             }
         }
         .game2{
-            .box{
-                width: 250px;
-                height: 70px;
-                padding: 10px;
+            height: 100%;
+            .connectLines{
+                flex-direction: column;
+                height: calc(~"100% - 170px");
+                justify-content: space-between;
             }
 
+            .from > div{
+                border-radius: 50%;
+                border-style: double;
+            }
+            .box {
+                width: 150px;
+                height: 150px;
+                padding: 10px;
+            }
+            .from, .to{
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+        .game3{
+            .options{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                height: 500px;
+                a{
+                    text-decoration: none;
+                    color: #000;
+                    border: 4px solid;
+                    padding: 20px;
+                    border-radius: 20px;
+                    font-size: 1.5em;
+                    background: #fff;
+                    width: 90%;
+                    transition: all .3s;
+                    &:hover{
+                        width: 95%;
+                        background: @naranja;
+                        color: #fff;
+                        border-color: #fff;
+                        text-decoration: none;
+                    }
+                }
+            }
         }
     }
 }

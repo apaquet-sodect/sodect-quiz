@@ -154,11 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         score: 0,
                         question : 0,
                         objects:[
-                            {q: "Combien de peaux de castor as-tu besoin pour troquer un fusil ?", r: "12 peaux de castor", other: ["4 peaux de castor", "10 peaux de castor"]},
-                            {q: "Tu as besoin de poudre noire pour ton fusil. Combien de peaux de castor as-tu besoin pour t’en procurer ?", r: "1 peau de castor ", other: ["2 peaux de castor", "5 peaux de castor"]},
-                            {q: "Tu veux une marmite de quatre litres pour faire bouillir ton eau d’érable. Combien de peaux de castors as-tu besoin pour te la procurer ? ", r: "18 peaux de castor", other: ["9 peaux de castor", "15 peaux de castor"]},
-                            {q: "Combien de peau de castor as-tu besoin pour acheter un tomahawk, une livre de perle, une paire de chaussures et deux chemises ?", r: "7 peaux de castor ", other: ["4 peaux de castor", "9 peaux de castor"]},
-                            {q: "Quelle est la valeur d’une peau de loup en peaux de castor ? ", r: "10 peaux de castor ", other: ["3 peaux de castor", "8 peaux de castor"]},
+                            {q: "Combien de peaux de castor as-tu besoin pour troquer un fusil?", r: "12 peaux de castor", other: ["4 peaux de castor", "10 peaux de castor"]},
+                            {q: "Tu as besoin de poudre noire pour ton fusil. Combien de peaux de castor as-tu besoin pour t’en procurer?", r: "1 peau de castor ", other: ["2 peaux de castor", "5 peaux de castor"]},
+                            {q: "Tu veux une marmite de quatre litres pour faire bouillir ton eau d’érable. Combien de peaux de castors as-tu besoin pour te la procurer? ", r: "18 peaux de castor", other: ["9 peaux de castor", "15 peaux de castor"]},
+                            {q: "Combien de peau de castor as-tu besoin pour acheter un tomahawk, une livre de perle, une paire de chaussures et deux chemises?", r: "7 peaux de castor ", other: ["4 peaux de castor", "9 peaux de castor"]},
+                            {q: "Quelle est la valeur d’une peau de loup en peaux de castor? ", r: "10 peaux de castor ", other: ["3 peaux de castor", "8 peaux de castor"]},
                         ]
                     },
                     {
@@ -323,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         title:"CARRÉ AUX DATES",
                         winMessage: "",
                         connectLines: null,
+                        linesType: "horizontal",
                         objects:[
                             {
                                 name: "eclairage",
