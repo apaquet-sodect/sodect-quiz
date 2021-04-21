@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                     // seigneurie Game #1 LES OBJETS DU QUOTIDIEN
                     title: "LES OBJETS DU QUOTIDIEN: NOUVELLE-FRANCE",
-                    winMessage: "Ganaste el primer juego",
+                    winMessage: "You won the first game",
                     objects: [
                         {
                             name: "auto",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, {
                     // seigneurie Game #2
                     title: "QUIZ HISTORIQUE",
-                    winMessage: "Ganasteee el segundo juego",
+                    winMessage: "You won second game",
                     question : 0,
                     objects:[
                         {q: "En moyenne, combien d’enfants retrouve-t-on par famille?", img: "a.jpg"},
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #1 À CHACUN SA FOURRURE
                         title: "À CHACUN SA FOURRURE",
-                        winMessage: "Ganaste el conectar las lineas",
+                        winMessage: "You won connect the lines",
                         linesType: "horizontal",
                         connectLines: null,
                         objects:[
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #3 LA COMPAGNIE DU NORD-OUEST
                         title: "LA COMPAGNIE DU NORD-OUEST",
-                        winMessage: "Ganaste el 3er jeugo",
+                        winMessage: "You thrid game",
                         objects:[
                             {
                                 name: "voyageurs",
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 moulins: [
                     {
                         title:"LES MOULINS DE TERREBONNE",
-                        winMessage: "holi",
+                        winMessage: "You won Moulins de Terrebonne",
                         connectLines: null,
                         objects:[
                             {
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         ]
                     },{
-                        title:"coso",
+                        title: "POUR CHAQUE LAINE SA TEINTURE",
                         winMessage: "",
                         connectLines: null,
                         objects:[
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 moderne: [
                     {
                         title:"L’INDENCIE DE 1922",
-                        winMessage: "Ganaste el 3er jeugo",
+                        winMessage: "You sure know about 1922",
                         objects:[
                             {
                                 name: "Boucherie",
