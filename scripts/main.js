@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #3 LA COMPAGNIE DU NORD-OUEST
                         title: "LA COMPAGNIE DU NORD-OUEST",
-                        winMessage: "You thrid game",
+                        winMessage: "You won the third game",
                         objects:[
                             {
                                 name: "voyageurs",
