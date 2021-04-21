@@ -30,15 +30,41 @@
   height: 100vh;
   background: #fff;
   z-index: 99;
-  animation: 7s multicolor infinite reverse;
+  -webkit-animation: 7s multicolor infinite reverse;
+          animation: 7s multicolor infinite reverse;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   opacity: 1;
+  -webkit-transition: opacity 1s linear;
   transition: opacity 1s linear;
 }
 #loading.hidden {
-  animation: fadeout 800ms linear forwards;
+  -webkit-animation: fadeout 800ms linear forwards;
+          animation: fadeout 800ms linear forwards;
+}
+@-webkit-keyframes multicolor {
+  0% {
+    background: #a5ea1b;
+  }
+  25% {
+    background: #f8375b;
+  }
+  50% {
+    background: #f2b120;
+  }
+  75% {
+    background: #a3c4e7;
+  }
+  100% {
+    background: #a5ea1b;
+  }
 }
 @keyframes multicolor {
   0% {
@@ -57,6 +83,16 @@
     background: #a5ea1b;
   }
 }
+@-webkit-keyframes fadeout {
+  99% {
+    opacity: 0;
+    z-index: inherit;
+  }
+  100% {
+    opacity: 0;
+    z-index: -999;
+  }
+}
 @keyframes fadeout {
   99% {
     opacity: 0;
@@ -68,8 +104,13 @@
   }
 }
 #app {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100vh;
 }
 h1 {
@@ -111,14 +152,21 @@ header {
   border: 6px solid #000000;
 }
 header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px 10px;
 }
 header .container img {
   height: 100px;
   opacity: 0;
+  -webkit-transition: .3s;
   transition: .3s;
 }
 header .container img.visible {
@@ -130,32 +178,51 @@ header .container img:hover {
 main {
   border: 6px solid #000000;
   border-top: none;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-transition: 1s right;
   transition: 1s right;
   right: 0vw;
   position: relative;
 }
-main.menu > div {
-  width: 100%;
-  height: 100%;
+main.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+}
+main.menu > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 main.menu > div > * {
   text-align: center;
   font-size: 2em;
   border: 3px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: calc(100vw - 15px);
   height: calc(25% - 4px);
+  -webkit-transition: all .2s;
   transition: all .2s;
 }
 main.menu > div > *:hover {
   text-decoration: none;
-  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 main.menu > div > *:nth-of-type(1) {
   background: #a5ea1b;
@@ -198,6 +265,7 @@ main.seigneurie .game1 .objects > div .title {
   text-align: center;
   text-shadow: 0px 0px 5px white;
   opacity: 0;
+  -webkit-transition: .9s;
   transition: .9s;
 }
 main.seigneurie .game1 .objects > div:hover {
@@ -205,6 +273,7 @@ main.seigneurie .game1 .objects > div:hover {
 }
 main.seigneurie .game1 .objects > div:hover .title {
   opacity: 1;
+  -webkit-transition: .1s;
   transition: .1s;
 }
 main.seigneurie .game1 .objects > div .checkmark {
@@ -215,15 +284,23 @@ main.seigneurie .game1 .objects > div .checkmark {
 main.seigneurie .game1 .objects > div img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   -webkit-user-drag: none;
 }
 main.seigneurie .game2 .container {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
   height: 600px;
-  justify-content: space-evenly;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 main.seigneurie .game2 svg {
   width: 100px;
@@ -233,10 +310,17 @@ main.seigneurie .game2 h2 {
 }
 main.seigneurie .game3 .container {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
   height: 100%;
-  justify-content: space-evenly;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 main.seigneurie .game3 .question {
   height: 50vh;
@@ -252,6 +336,7 @@ main.seigneurie .game3 a {
   border: 3px solid #fff;
   margin-right: -7px;
   color: #fff;
+  -webkit-transition: all .4s;
   transition: all .4s;
 }
 main.seigneurie .game3 a:nth-of-type(1) {
@@ -273,14 +358,20 @@ main.voyageurs {
   padding: 20px 0;
 }
 main.voyageurs .game1 .connectLines {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 50vh;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 main.voyageurs .game1 .from img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   -webkit-user-drag: none;
 }
 main.voyageurs .game1 .to > div {
@@ -290,7 +381,8 @@ main.voyageurs .game1 .to > div img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   -webkit-user-drag: none;
   pointer-events: none;
 }
@@ -300,15 +392,29 @@ main.voyageurs .game1 .box {
 }
 main.voyageurs .game1 .from,
 main.voyageurs .game1 .to {
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 main.voyageurs .game2 .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 500px;
 }
 main.voyageurs .game2 .options a {
@@ -320,6 +426,7 @@ main.voyageurs .game2 .options a {
   font-size: 1.5em;
   background: #fff;
   width: 90%;
+  -webkit-transition: all .3s;
   transition: all .3s;
 }
 main.voyageurs .game2 .options a:hover {
@@ -344,6 +451,7 @@ main.voyageurs .game3 .objects > div {
   aspect-ratio: 1;
   overflow: hidden;
   border: 6px solid #000;
+  -webkit-transition: all .2s;
   transition: all .2s;
 }
 main.voyageurs .game3 .objects > div:hover {
@@ -356,13 +464,22 @@ main.voyageurs .game3 .objects > div .checkmark {
 }
 main.voyageurs .game3 .objects > div .title {
   font-size: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
   text-align: center;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 main.moulins {
   background: #f2b120;
@@ -380,8 +497,12 @@ main.moulins .game1 .connectLines .from > div {
 main.moulins .game1 .connectLines .from img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  user-select: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-user-drag: none;
 }
 main.moulins .game1 .connectLines .to > div {
@@ -390,7 +511,9 @@ main.moulins .game1 .connectLines .to > div {
 }
 main.moulins .game1 .connectLines .from,
 main.moulins .game1 .connectLines .to {
-  justify-content: space-evenly;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 main.moulins .game1 .connectLines .box {
   width: auto;
@@ -409,8 +532,12 @@ main.moulins .game2 .connectLines .to > div {
 main.moulins .game2 .connectLines .to img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  user-select: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
 }
@@ -420,7 +547,9 @@ main.moulins .game2 .connectLines .from > div {
 }
 main.moulins .game2 .connectLines .from,
 main.moulins .game2 .connectLines .to {
-  justify-content: space-evenly;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 main.moulins .game2 .connectLines .box {
   width: auto;
@@ -429,10 +558,17 @@ main.moulins .game2 .connectLines .box {
 }
 main.moulins .game3 .container {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
   height: 30vh;
-  justify-content: space-evenly;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 main.moulins .game3 a {
   width: 200px;
@@ -442,6 +578,7 @@ main.moulins .game3 a {
   border: 3px solid #fff;
   margin-right: -7px;
   color: #fff;
+  -webkit-transition: all .4s;
   transition: all .4s;
 }
 main.moulins .game3 a:nth-of-type(1) {
@@ -491,21 +628,35 @@ main.moderne .game1 .objects > div .checkmark {
 }
 main.moderne .game1 .objects > div .title {
   font-size: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
   text-align: center;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 main.moderne .game2 {
   height: 100%;
 }
 main.moderne .game2 .connectLines {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: calc(100% - 170px);
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 main.moderne .game2 .from > div {
   border-radius: 50%;
@@ -518,15 +669,29 @@ main.moderne .game2 .box {
 }
 main.moderne .game2 .from,
 main.moderne .game2 .to {
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 main.moderne .game3 .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 500px;
 }
 main.moderne .game3 .options a {
@@ -538,6 +703,7 @@ main.moderne .game3 .options a {
   font-size: 1.5em;
   background: #fff;
   width: 90%;
+  -webkit-transition: all .3s;
   transition: all .3s;
 }
 main.moderne .game3 .options a:hover {
@@ -554,14 +720,18 @@ main.moderne .game3 .options a:hover {
   background: green;
 }
 .questions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
+  -webkit-transition: left .3s;
   transition: left .3s;
 }
 .question {
   width: 100vw;
 }
 #message {
+  -webkit-transition: .9s right;
   transition: .9s right;
   position: absolute;
   height: calc(100vh - 36px);
@@ -571,11 +741,20 @@ main.moderne .game3 .options a:hover {
   z-index: 10;
 }
 #message > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100%;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #message > div h1 {
   font-size: 4em;
@@ -587,6 +766,7 @@ main.moderne .game3 .options a:hover {
   font-size: 2em;
   padding: 1.5rem;
   border: 0;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   border-radius: 10px;
   width: auto;
@@ -602,18 +782,22 @@ main.moderne .game3 .options a:hover {
   right: 0;
   bottom: 0;
   opacity: 0;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 .login-btn:hover {
   background: #000 !important;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   border-radius: 10px;
-  box-shadow: 0px 6px 15px #848484;
+  -webkit-box-shadow: 0px 6px 15px #848484;
+          box-shadow: 0px 6px 15px #848484;
   padding: 1.5rem 3rem 1.5rem 1.5rem;
   color: #ffffff;
 }
 .login-btn:hover::after {
   opacity: 1;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   color: #ffffff;
 }
@@ -622,24 +806,33 @@ main.moderne .game3 .options a:hover {
   height: 100px;
   border: 4px solid #000;
   font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   background: #fff;
 }
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 .connectLines {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100vw;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   z-index: 1;
   position: relative;
 }
@@ -648,14 +841,22 @@ main.moderne .game3 .options a:hover {
   top: 0;
   left: 0;
   pointer-events: none;
+  -webkit-transition: 1s left;
   transition: 1s left;
 }
 .from,
 .to {
   width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 0;
 }
 .arrow {
@@ -688,38 +889,68 @@ main.moderne .game3 .options a:hover {
   stroke: #fff;
   stroke-miterlimit: 10;
   margin: 10% auto;
-  box-shadow: inset 0 0 0 #7ac142;
+  -webkit-box-shadow: inset 0 0 0 #7ac142;
+          box-shadow: inset 0 0 0 #7ac142;
 }
 .checkmark__check {
-  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
 }
 .checkmark.animate {
-  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+  -webkit-animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+          animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
 }
 .checkmark.animate .checkmark__circle {
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  -webkit-animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+          animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 .checkmark.animate .checkmark__check {
-  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+  -webkit-animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+          animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 @keyframes stroke {
   100% {
     stroke-dashoffset: 0;
   }
 }
+@-webkit-keyframes scale {
+  0%,
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+  50% {
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+            transform: scale3d(1.1, 1.1, 1);
+  }
+}
 @keyframes scale {
   0%,
   100% {
-    transform: none;
+    -webkit-transform: none;
+            transform: none;
   }
   50% {
-    transform: scale3d(1.1, 1.1, 1);
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+            transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@-webkit-keyframes fill {
+  100% {
+    -webkit-box-shadow: inset 0 0 0 30px #7ac142;
+            box-shadow: inset 0 0 0 30px #7ac142;
   }
 }
 @keyframes fill {
   100% {
-    box-shadow: inset 0 0 0 30px #7ac142;
+    -webkit-box-shadow: inset 0 0 0 30px #7ac142;
+            box-shadow: inset 0 0 0 30px #7ac142;
   }
 }
