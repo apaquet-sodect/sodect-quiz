@@ -260,16 +260,30 @@ main{
             .image{
                 height: 400px;
                 margin-bottom: 20px;
-                transition: all 5s;
+
+                img{
+                    transition: filter 5s;
+                    height: 90%;
+                }
+                .answer{
+                    font-size: 1.5em;
+                    opacity: 1;
+                    transition: opacity 2s;
+                    transition-delay: 5s;
+                }
                 &.blur{
-                    filter: blur(20px);
+
+                    img{
+                        filter: blur(20px);
+                    }
+                    .answer{
+                        opacity: 0;
+                    }
+
                 }
                 &:hover{
                     cursor: pointer;
                 }
-            }
-            img{
-                height: 100%;
             }
             svg{
                 width: 100px;
@@ -277,6 +291,7 @@ main{
             h2{
                 font-size: 3em;
             }
+
         }
 
         .game3{

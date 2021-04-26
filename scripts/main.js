@@ -98,12 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     winMessage: "Bravo, tu as réussi le Quiz historique !",
                     question : 0,
                     objects:[
-                        {q: "En moyenne, combien d’enfants retrouve-t-on par famille?", blur: true, img: "q1.jpg"},
-                        {q: "Au temps du régime seigneurial, on organise souvent des charivaris. Pourquoi? ", blur: true, img: "q2.jpg"},
-                        {q: "Les premières seigneuries font face à un cours d’eau. Celle de Terrebonne longe la rivière des Mille-Îles, autrefois nommée", blur: true, img: "q3.jpg"},
-                        {q: "Les censitaires peuvent-ils voter?", blur: true, img: "q4.jpg"},
-                        {q: "Selon l’état et L’Église en Nouvelle-France, un bon habitant est un ______________ pratiquant et obéissant, attaché à sa langue et qui cultive sa terre en travaillant dur.", blur: true, img: "q5.jpg"},
-                        {q: "Quand le censitaire fait moudre son blé au moulin, il doit donner une partie au seigneur. Combien de sac de blé doit-il donner au seigneur?", blur: true, img: "q6.jpg"},
+                        {q: "En moyenne, combien d’enfants retrouve-t-on par famille ?", a: "Six", blur: true, img: "q1.jpg"},
+                        {q: "Les premières seigneuries font face à un cours d’eau. Celle de Terrebonne longe la rivière des Mille-Îles, autrefois nommée _________________", a: "La rivière Jésus", blur: true, img: "q2.jpg"},
+                        {q: "Selon l’état et L’Église en Nouvelle-France, un bon habitant est un ______________ pratiquant et obéissant, attaché à sa langue et qui cultive sa terre en travaillant dur.", a:"Catholique", blur: true, img: "q3.jpg"},
+                        {q: "Quand le censitaire fait moudre son blé au moulin, il doit donner une partie au seigneur. Combien de sacs de blé doit-il donner au seigneur ? __________________", a: "1 sac sur 14", blur: true, img: "q4.jpg"},
+                        {q: "À quelle activité les colons consacrent-ils la majeure partie de leur temps ?", a: "Aux travaux agricoles", blur: true, img: "q5.jpg"},
                     ]
                 }, {
                     // seigneurie Game #3

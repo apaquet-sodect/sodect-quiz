@@ -306,18 +306,31 @@ main.seigneurie .game2 .container {
 main.seigneurie .game2 .image {
   height: 400px;
   margin-bottom: 20px;
-  -webkit-transition: all 5s;
-  transition: all 5s;
 }
-main.seigneurie .game2 .image.blur {
+main.seigneurie .game2 .image img {
+  -webkit-transition: -webkit-filter 5s;
+  transition: -webkit-filter 5s;
+  transition: filter 5s;
+  transition: filter 5s, -webkit-filter 5s;
+  height: 90%;
+}
+main.seigneurie .game2 .image .answer {
+  font-size: 1.5em;
+  opacity: 1;
+  -webkit-transition: opacity 2s;
+  transition: opacity 2s;
+  -webkit-transition-delay: 5s;
+          transition-delay: 5s;
+}
+main.seigneurie .game2 .image.blur img {
   -webkit-filter: blur(20px);
           filter: blur(20px);
 }
+main.seigneurie .game2 .image.blur .answer {
+  opacity: 0;
+}
 main.seigneurie .game2 .image:hover {
   cursor: pointer;
-}
-main.seigneurie .game2 img {
-  height: 100%;
 }
 main.seigneurie .game2 svg {
   width: 100px;
