@@ -428,6 +428,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         methods: {
+            EnterFullscreen(){
+                console.log("Entering fullscreen")
+                this.toggleFullScreen();
+            },
+            toggleFullScreen(){
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    }
+                }
+            },
+
             RandEmoji(){
                 let possibleBtnEmojis = ["🙌","👌","🖖","👋","✊","👉","🔑","🇨🇦","🌚","🎃","👍","🤙","🎓"]
                 let rand = Math.floor(Math.random()*possibleBtnEmojis.length)

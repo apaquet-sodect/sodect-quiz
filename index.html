@@ -39,13 +39,16 @@
                 <h1>{{GetTitle}}</h1>
             </div>
         </header>
+
         <main v-bind:class="capsule" v-bind:style="{ right: message.show ? '100vw' : '0px' }">
             <div v-if="capsule=='menu'">
                 <a href="#" @click="capsule='seigneurie';game=1">LE RÉGIME SEIGNEURIAL</a>
                 <a href="#" @click="capsule='voyageurs';game=1">LES VOYAGEURS</a>
-                <a href="#" @click="capsule='moulins';game=1">LES MOULINS</a>
+                <a href="#" @click="capsule='moulins';game=1">L’ÂGE D’OR DES MOULINS DE TERREBONNE</a>
                 <a href="#" @click="capsule='moderne';game=1">TERREBONNE MODERNE</a>
+
             </div>
+
 
 
             <div class="container seigneurie game1" v-show="capsule=='seigneurie' && game==1">
@@ -243,6 +246,7 @@
                 </div>
             </div>
         </main>
+        <div v-if="capsule=='menu'" id="fullscreen" @click="EnterFullscreen()"><img src="./assets/fullscreen.png"></div>
 
         <div id="message"  v-bind:style="{ right: message.show ? '0vw' : '-100vw' }">
             <div class="container">

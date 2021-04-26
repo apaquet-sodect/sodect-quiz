@@ -747,6 +747,24 @@ main.moderne .game3 .options a:hover {
 .question {
   width: 100vw;
 }
+#fullscreen {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 30px;
+  width: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+#fullscreen:hover {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+#fullscreen img {
+  width: 100%;
+}
 #message {
   -webkit-transition: .9s right;
   transition: .9s right;
