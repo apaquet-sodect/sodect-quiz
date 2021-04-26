@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                     // seigneurie Game #1 LES OBJETS DU QUOTIDIEN
                     title: "LES OBJETS DU QUOTIDIEN: NOUVELLE-FRANCE",
-                    winMessage: "You won the first game",
+                    winMessage: "Bravo, tu as réussi le premier jeu !",
                     objects: [
                         {
                             name: "auto",
@@ -95,15 +95,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, {
                     // seigneurie Game #2
                     title: "QUIZ HISTORIQUE",
-                    winMessage: "You won second game",
+                    winMessage: "Bravo, tu as réussi le Quiz historique !",
                     question : 0,
                     objects:[
-                        {q: "En moyenne, combien d’enfants retrouve-t-on par famille?", img: "a.jpg"},
-                        {q: "Au temps du régime seigneurial, on organise souvent des charivaris. Pourquoi? ", img: "a.jpg"},
-                        {q: "Les premières seigneuries font face à un cours d’eau. Celle de Terrebonne longe la rivière des Mille-Îles, autrefois nommée", img: "a.jpg"},
-                        {q: "Les censitaires peuvent-ils voter?", img: "a.jpg"},
-                        {q: "Selon l’état et L’Église en Nouvelle-France, un bon habitant est un ______________ pratiquant et obéissant, attaché à sa langue et qui cultive sa terre en travaillant dur.", img: "a.jpg"},
-                        {q: "Quand le censitaire fait moudre son blé au moulin, il doit donner une partie au seigneur. Combien de sac de blé doit-il donner au seigneur?", img: "a.jpg"},
+                        {q: "En moyenne, combien d’enfants retrouve-t-on par famille?", blur: true, img: "q1.jpg"},
+                        {q: "Au temps du régime seigneurial, on organise souvent des charivaris. Pourquoi? ", blur: true, img: "q2.jpg"},
+                        {q: "Les premières seigneuries font face à un cours d’eau. Celle de Terrebonne longe la rivière des Mille-Îles, autrefois nommée", blur: true, img: "q3.jpg"},
+                        {q: "Les censitaires peuvent-ils voter?", blur: true, img: "q4.jpg"},
+                        {q: "Selon l’état et L’Église en Nouvelle-France, un bon habitant est un ______________ pratiquant et obéissant, attaché à sa langue et qui cultive sa terre en travaillant dur.", blur: true, img: "q5.jpg"},
+                        {q: "Quand le censitaire fait moudre son blé au moulin, il doit donner une partie au seigneur. Combien de sac de blé doit-il donner au seigneur?", blur: true, img: "q6.jpg"},
                     ]
                 }, {
                     // seigneurie Game #3
@@ -112,10 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     question : 0,
                     objects:[
                         {q: "Il a toujours le premier banc à l’église. ", r: "seigneur"},
-                        {q: "Il peut donner sa terre à ses enfants ou la vendre. ", r: "censitaire"},
-                        {q: "Il peut avoir son propre four. ", r: "censitaire" },
+                        {q: "Il peut donner sa terre à ses enfants ou la vendre. ", r: "censitaires"},
+                        {q: "Il peut avoir son propre four. ", r: "censitaires" },
                         {q: "Il doit construire un moulin à farine. ", r: "seigneur"},
-                        {q: "Il peut chasser et pêcher pour nourrir sa famille.", r:"censitaire" },
+                        {q: "Il peut chasser et pêcher pour nourrir sa famille.", r:"censitaires" },
                         {q: "Il doit jurer fidélité au roi.", r: "seigneur"}
                     ]
                 }],
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #1 À CHACUN SA FOURRURE
                         title: "À CHACUN SA FOURRURE",
-                        winMessage: "You won connect the lines",
+                        winMessage: "Bravo, tu connais tes fourrures !",
                         linesType: "horizontal",
                         connectLines: null,
                         objects:[
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         // Voyageurs Game #3 LA COMPAGNIE DU NORD-OUEST
                         title: "LA COMPAGNIE DU NORD-OUEST",
-                        winMessage: "You won the third game",
+                        winMessage: "Bravo !",
                         objects:[
                             {
                                 name: "voyageurs",
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 moulins: [
                     {
                         title:"LES MOULINS DE TERREBONNE",
-                        winMessage: "You won Moulins de Terrebonne",
+                        winMessage: "Bravo, tu sais identifier les moulins !",
                         connectLines: null,
                         objects:[
                             {
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ]
                     },{
                         title: "POUR CHAQUE LAINE SA TEINTURE",
-                        winMessage: "",
+                        winMessage: "Bravo !",
                         connectLines: null,
                         objects:[
                             {
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 moderne: [
                     {
                         title:"L’INDENCIE DE 1922",
-                        winMessage: "You sure know about 1922",
+                        winMessage: "Bravo, tu connais bien l'histoire de l'incendie de 1922 !",
                         objects:[
                             {
                                 name: "Boucherie",
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ]
                     },{
                         title:"CARRÉ AUX DATES",
-                        winMessage: "",
+                        winMessage: "Bravo !",
                         connectLines: null,
                         linesType: "horizontal",
                         objects:[

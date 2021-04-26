@@ -255,8 +255,21 @@ main{
                 text-align: center;
                 display: flex;
                 flex-flow: column;
-                height: 600px;
                 justify-content: space-evenly;
+            }
+            .image{
+                height: 400px;
+                margin-bottom: 20px;
+                transition: all 5s;
+                &.blur{
+                    filter: blur(20px);
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            img{
+                height: 100%;
             }
             svg{
                 width: 100px;
