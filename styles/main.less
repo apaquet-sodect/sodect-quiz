@@ -162,7 +162,6 @@ main{
         display: flex;
         & > div{
             width: 100%;
-            height: 100%;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -211,13 +210,13 @@ main{
                 grid-row-gap: 40px;
                 & > div{
                     background: #fff;
-                    width: 100%;
-                    height: 100%;
                     border-radius: 50%;
-                    aspect-ratio: 1;
+                    // aspect-ratio: 1;
                     overflow: hidden;
                     border: 6px solid #000;
                     position: relative;
+                    width: 210px;
+                    height: 210px;
                     .title{
                         position: absolute;
                         top: 50%;
@@ -443,6 +442,7 @@ main{
             height: 100%;
             .connectLines{
                 height: 100%;
+                min-height: 700px;
                 .from{
                     &>div{
                         border-color: #fff !important;
@@ -463,9 +463,8 @@ main{
                     justify-content: space-evenly;
                 }
                 .box{
-                    width: auto;
-                    height: 20vh;
-                    aspect-ratio: 1;
+                    width: 210px;
+                    height: 210px;
                 }
             }
         }
@@ -473,6 +472,7 @@ main{
             height: 100%;
             .connectLines{
                 height: 100%;
+                min-height: 700px;
                 .to{
                     &>div{
                         border-color: #fff !important;
@@ -494,9 +494,8 @@ main{
                     justify-content: space-evenly;
                 }
                 .box{
-                    width: auto;
-                    height: 15vh;
-                    aspect-ratio: 1;
+                    width: 160px;
+                    height: 160px;
                 }
             }
         }
@@ -555,6 +554,8 @@ main{
                     aspect-ratio: 1;
                     overflow: hidden;
                     border: 6px solid #000;
+                    height: 250px;
+                    width: 250px;
                     &:hover{
                         cursor: pointer;
                         border: 6px double #000;
@@ -582,6 +583,7 @@ main{
                 flex-direction: column;
                 height: calc(~"100% - 170px");
                 justify-content: space-between;
+                min-height: 600px;
             }
 
             .from > div{

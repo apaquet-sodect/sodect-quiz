@@ -193,7 +193,6 @@ main.menu {
 }
 main.menu > div {
   width: 100%;
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -251,13 +250,12 @@ main.seigneurie .game1 .objects {
 }
 main.seigneurie .game1 .objects > div {
   background: #fff;
-  width: 100%;
-  height: 100%;
   border-radius: 50%;
-  aspect-ratio: 1;
   overflow: hidden;
   border: 6px solid #000;
   position: relative;
+  width: 210px;
+  height: 210px;
 }
 main.seigneurie .game1 .objects > div .title {
   position: absolute;
@@ -520,6 +518,7 @@ main.moulins .game1 {
 }
 main.moulins .game1 .connectLines {
   height: 100%;
+  min-height: 700px;
 }
 main.moulins .game1 .connectLines .from > div {
   border-color: #fff !important;
@@ -546,15 +545,15 @@ main.moulins .game1 .connectLines .to {
           justify-content: space-evenly;
 }
 main.moulins .game1 .connectLines .box {
-  width: auto;
-  height: 20vh;
-  aspect-ratio: 1;
+  width: 210px;
+  height: 210px;
 }
 main.moulins .game2 {
   height: 100%;
 }
 main.moulins .game2 .connectLines {
   height: 100%;
+  min-height: 700px;
 }
 main.moulins .game2 .connectLines .to > div {
   border-color: #fff !important;
@@ -582,9 +581,8 @@ main.moulins .game2 .connectLines .to {
           justify-content: space-evenly;
 }
 main.moulins .game2 .connectLines .box {
-  width: auto;
-  height: 15vh;
-  aspect-ratio: 1;
+  width: 160px;
+  height: 160px;
 }
 main.moulins .game3 .container {
   text-align: center;
@@ -647,6 +645,8 @@ main.moderne .game1 .objects > div {
   aspect-ratio: 1;
   overflow: hidden;
   border: 6px solid #000;
+  height: 250px;
+  width: 250px;
 }
 main.moderne .game1 .objects > div:hover {
   cursor: pointer;
@@ -687,6 +687,7 @@ main.moderne .game2 .connectLines {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  min-height: 600px;
 }
 main.moderne .game2 .from > div {
   border-radius: 50%;
