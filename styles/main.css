@@ -310,15 +310,15 @@ main.seigneurie .game2 .image img {
   transition: -webkit-filter 5s;
   transition: filter 5s;
   transition: filter 5s, -webkit-filter 5s;
-  height: 90%;
+  height: 30vh;
 }
 main.seigneurie .game2 .image .answer {
   font-size: 1.5em;
   opacity: 1;
   -webkit-transition: opacity 2s;
   transition: opacity 2s;
-  -webkit-transition-delay: 5s;
-          transition-delay: 5s;
+  -webkit-transition-delay: 3s;
+          transition-delay: 3s;
 }
 main.seigneurie .game2 .image.blur img {
   -webkit-filter: blur(20px);
@@ -334,7 +334,7 @@ main.seigneurie .game2 svg {
   width: 100px;
 }
 main.seigneurie .game2 h2 {
-  font-size: 3em;
+  font-size: 2em;
 }
 main.seigneurie .game3 .container {
   text-align: center;
@@ -428,6 +428,9 @@ main.voyageurs .game1 .to {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+main.voyageurs .game2 svg {
+  margin: 0 auto;
 }
 main.voyageurs .game2 .options {
   display: -webkit-box;
@@ -598,6 +601,9 @@ main.moulins .game3 .container {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
+main.moulins .game3 svg {
+  margin: 10px auto;
+}
 main.moulins .game3 a {
   width: 200px;
   display: inline-block;
@@ -708,6 +714,9 @@ main.moderne .game2 .to {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+main.moderne .game3 svg {
+  margin: 0 auto;
 }
 main.moderne .game3 .options {
   display: -webkit-box;

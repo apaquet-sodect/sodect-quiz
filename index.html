@@ -90,10 +90,16 @@
                     <div v-for="item in games.seigneurie[2].objects" class="question">
                         <div class="container">
                             <h2>{{item.q}}</h2>
-                            <div>
+                            <div v-bind:class="{'animate__animated animate__headShake': item.guessed === false}">
                                 <a href="#" @click="NextQuestion('seigneur')">Seigneur</a>
                                 <a href="#" @click="NextQuestion('censitaires')">Censitaires</a>
                             </div>
+
+                            <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                            </svg>
+
                         </div>
                     </div>
                 </div>
@@ -119,16 +125,22 @@
 
             <div class="voyageurs game2" v-show="capsule=='voyageurs' && game==2">
                 <div class="questions" v-bind:style="{width: games.voyageurs[1].objects.length * 100 + 'vw', left: games.voyageurs[1].question * -100 + 'vw'}">
-                    <div v-for="item in games.voyageurs[1].objects" class="question">
+                    <div v-for="(item,i) in games.voyageurs[1].objects" class="question">
                         <div class="container">
                             <h2><span>Question:</span> {{item.q}}</h2>
 
                             <br>
-                            <div class="options">
-                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.r)">{{item.r}}</a>
-                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[0])">{{item.other[0]}}</a>
-                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[1])">{{item.other[1]}}</a>
+                            <div class="options"  v-bind:class="{'animate__animated animate__headShake': item.guessed === false}">
+                                <a v-bind:key="i" href="#" v-bind:style="{order: randomList[(i * games.voyageurs[1].question)] }" @click="NextQuestion(item.r)">{{item.r}}</a>
+                                <a v-bind:key="i" href="#" v-bind:style="{order: randomList[(i * games.voyageurs[1].question)+1] }" @click="NextQuestion(item.other[0])">{{item.other[0]}}</a>
+                                <a v-bind:key="i" href="#" v-bind:style="{order: randomList[(i * games.voyageurs[1].question)+2] }" @click="NextQuestion(item.other[1])">{{item.other[1]}}</a>
                             </div>
+
+                            <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                            </svg>
+
                         </div>
                     </div>
                 </div>
@@ -186,10 +198,16 @@
                     <div v-for="item in games.moulins[2].objects" class="question">
                         <div class="container">
                             <h2>{{item.q}}</h2>
-                            <div>
+                            <div v-bind:class="{'animate__animated animate__headShake': item.guessed === false}">
                                 <a href="#" @click="NextQuestion('régime municipal')">Régime municipal</a>
                                 <a href="#" @click="NextQuestion('régime seigneurial')">Régime seigneurial</a>
                             </div>
+
+                            <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                            </svg>
+
                         </div>
                     </div>
                 </div>
@@ -235,13 +253,19 @@
                     <h2>Identifie l’élément qui n’a jamais été présent sur l’Île-des-Moulins</h2>
                 </div>
                 <div class="questions" v-bind:style="{width: games.moderne[2].objects.length * 100 + 'vw', left: games.moderne[2].question * -100 + 'vw'}">
-                    <div v-for="item in games.moderne[2].objects" class="question">
+                    <div v-for="(item, i) in games.moderne[2].objects" class="question">
                         <div class="container">
-                            <div class="options">
-                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.r)">{{item.r}}</a>
-                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[0])">{{item.other[0]}}</a>
-                                <a href="#" v-bind:style="{order: Math.round(Math.random()*100)}" @click="NextQuestion(item.other[1])">{{item.other[1]}}</a>
+                            <div class="options"  v-bind:class="{'animate__animated animate__headShake': item.guessed === false}">
+                                <a href="#" v-bind:style="{order: randomList[(i * games.moderne[2].question)] }" @click="NextQuestion(item.r)">{{item.r}}</a>
+                                <a href="#" v-bind:style="{order: randomList[(i * games.moderne[2].question)+2]}" @click="NextQuestion(item.other[0])">{{item.other[0]}}</a>
+                                <a href="#" v-bind:style="{order: randomList[(i * games.moderne[2].question)+3]}" @click="NextQuestion(item.other[1])">{{item.other[1]}}</a>
                             </div>
+
+                            <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                            </svg>
+
                         </div>
                     </div>
                 </div>

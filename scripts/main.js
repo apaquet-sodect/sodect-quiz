@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     app = new Vue({
         el: '#app',
         data: {
+            doingTransition: false,
             loaded:false,
             capsule: "menu",
             game: 0,
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 title: "",
 
             },
+            randomList: [],
             games: {
                 menu: [{
                     title: "JEUX INTERACTIFS"
@@ -110,12 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     score: 0,
                     question : 0,
                     objects:[
-                        {q: "Il a toujours le premier banc à l’église. ", r: "seigneur"},
-                        {q: "Il peut donner sa terre à ses enfants ou la vendre. ", r: "censitaires"},
-                        {q: "Il peut avoir son propre four. ", r: "censitaires" },
-                        {q: "Il doit construire un moulin à farine. ", r: "seigneur"},
-                        {q: "Il peut chasser et pêcher pour nourrir sa famille.", r:"censitaires" },
-                        {q: "Il doit jurer fidélité au roi.", r: "seigneur"}
+                        {q: "Il a toujours le premier banc à l’église. ", r: "seigneur", guessed: undefined},
+                        {q: "Il peut donner sa terre à ses enfants ou la vendre. ", r: "censitaires", guessed: undefined},
+                        {q: "Il peut avoir son propre four. ", r: "censitaires" , guessed: undefined},
+                        {q: "Il doit construire un moulin à farine. ", r: "seigneur", guessed: undefined},
+                        {q: "Il peut chasser et pêcher pour nourrir sa famille.", r:"censitaires" , guessed: undefined},
+                        {q: "Il doit jurer fidélité au roi.", r: "seigneur", guessed: undefined}
                     ]
                 }],
 
@@ -154,11 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         score: 0,
                         question : 0,
                         objects:[
-                            {q: "Combien de peaux de castor as-tu besoin pour troquer un fusil?", r: "12 peaux de castor", other: ["4 peaux de castor", "10 peaux de castor"]},
-                            {q: "Tu as besoin de poudre noire pour ton fusil. Combien de peaux de castor as-tu besoin pour t’en procurer?", r: "1 peau de castor ", other: ["2 peaux de castor", "5 peaux de castor"]},
-                            {q: "Tu veux une marmite de quatre litres pour faire bouillir ton eau d’érable. Combien de peaux de castors as-tu besoin pour te la procurer? ", r: "18 peaux de castor", other: ["9 peaux de castor", "15 peaux de castor"]},
-                            {q: "Combien de peau de castor as-tu besoin pour acheter un tomahawk, une livre de perle, une paire de chaussures et deux chemises?", r: "7 peaux de castor ", other: ["4 peaux de castor", "9 peaux de castor"]},
-                            {q: "Quelle est la valeur d’une peau de loup en peaux de castor? ", r: "10 peaux de castor ", other: ["3 peaux de castor", "8 peaux de castor"]},
+                            {q: "Combien de peaux de castor as-tu besoin pour troquer un fusil?", r: "12 peaux de castor", other: ["4 peaux de castor", "10 peaux de castor"], guessed: undefined},
+                            {q: "Tu as besoin de poudre noire pour ton fusil. Combien de peaux de castor as-tu besoin pour t’en procurer?", r: "1 peau de castor ", other: ["2 peaux de castor", "5 peaux de castor"], guessed: undefined},
+                            {q: "Tu veux une marmite de quatre litres pour faire bouillir ton eau d’érable. Combien de peaux de castors as-tu besoin pour te la procurer? ", r: "18 peaux de castor", other: ["9 peaux de castor", "15 peaux de castor"], guessed: undefined},
+                            {q: "Combien de peau de castor as-tu besoin pour acheter un tomahawk, une livre de perle, une paire de chaussures et deux chemises?", r: "7 peaux de castor ", other: ["4 peaux de castor", "9 peaux de castor"], guessed: undefined},
+                            {q: "Quelle est la valeur d’une peau de loup en peaux de castor? ", r: "10 peaux de castor ", other: ["3 peaux de castor", "8 peaux de castor"], guessed: undefined},
                         ]
                     },
                     {
@@ -262,12 +264,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         score: 0,
                         question : 0,
                         objects:[
-                            {q: "Le maire", r: "régime municipal"},
-                            {q: "Les censitaires", r: "régime seigneurial"},
-                            {q: "Le cens et les rentes", r: "régime seigneurial" },
-                            {q: "Les taxes", r: "régime municipal"},
-                            {q: "Une élection", r:"régime municipal" },
-                            {q: "Les corvées", r: "régime seigneurial"}
+                            {q: "Le maire", r: "régime municipal", guessed: undefined},
+                            {q: "Les censitaires", r: "régime seigneurial", guessed: undefined},
+                            {q: "Le cens et les rentes", r: "régime seigneurial" , guessed: undefined},
+                            {q: "Les taxes", r: "régime municipal", guessed: undefined},
+                            {q: "Une élection", r:"régime municipal" , guessed: undefined},
+                            {q: "Les corvées", r: "régime seigneurial", guessed: undefined}
                         ]
                     }
                 ],
@@ -356,11 +358,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         score: 0,
                         question : 0,
                         objects:[
-                            {r: "Un jeu d’évasion", other: ["Une boîte à chanson", "Une bibliothèque"]},
-                            {r: "Une centrale hydroélectrique", other: ["Un terrain de camping", "Un bureau seigneurial"]},
-                            {r: "Une station de ski", other: ["Une boulangerie", "Une manufacture de matelas"]},
-                            {r: "Un moulin à papier", other: ["Un moulin à scie", "Un moulin à farine"]},
-                            {r: "Moulin à vent", other: ["Moulin à réaction", "Moulin à aubes"]},
+                            {r: "Un jeu d’évasion", other: ["Une boîte à chanson", "Une bibliothèque"], guessed: undefined},
+                            {r: "Une centrale hydroélectrique", other: ["Un terrain de camping", "Un bureau seigneurial"], guessed: undefined},
+                            {r: "Une station de ski", other: ["Une boulangerie", "Une manufacture de matelas"], guessed: undefined},
+                            {r: "Un moulin à papier", other: ["Un moulin à scie", "Un moulin à farine"], guessed: undefined},
+                            {r: "Moulin à vent", other: ["Moulin à réaction", "Moulin à aubes"], guessed: undefined},
                         ]
                     }
                 ],
@@ -449,6 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
 
             CheckElementIsCorrect(el, ev) {
+                if(this.doingTransition){return}
                 let myObjects = this.currGameData.objects
                 let obj = myObjects.find(x => x.name == el)
 
@@ -473,36 +476,53 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (cantGuessed == cantCorrect) {
 
                     var self=this
+                    this.doingTransition = true
                     setTimeout(function(){
                         self.message.title = self.games[self.capsule][self.game - 1].winMessage
                         self.message.show = true
+                        self.doingTransition = false
                     }, 1200)
                 }
             },
             NextQuestion: function(answer = ""){
+                if(this.doingTransition){ return }
                 if(answer != ""){
                     let currQuestion = this.currGameData.question
                     let correctAnswer = this.currGameData.objects[currQuestion].r
                     if(correctAnswer == answer){
                         // console.log("correct!")
                         this.currGameData.score++
+                        SoundCorrect()
+                        this.currGameData.objects[currQuestion].guessed = true
+                    }else{
+                        // todo animation
+                        this.currGameData.objects[currQuestion].guessed = false
+                        SoundWrong()
                     }
                 }
                 let cantQuestions = this.currGameData.objects.length
                 let currCuestion =  this.currGameData.question
+
+                this.doingTransition = true
                 if(currCuestion == cantQuestions-1){
                      // Game ended
-                     SoundCorrect()
                      if(this.currGameData.score !== undefined){
                          this.message.title = this.currQuizScore
                      }else{
                          this.message.title = this.currGameData.winMessage
                      }
-                     this.message.show = true
-
+                     let self = this
+                     setTimeout(function(){
+                         self.doingTransition = false
+                         self.message.show = true
+                     }, 1300)
                 }else{
-                    RandomSoundPop()
-                    this.currGameData.question++
+                    let self = this
+                    setTimeout(function(){
+                        self.doingTransition = false
+                        self.currGameData.question++
+                    }, 1300)
+
                 }
 
             },
@@ -529,6 +549,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('images finished loading');
                 this.loaded=true
             });
+            for(let i=0;i<100;i++){
+                this.randomList.push( Math.round(Math.random()*100) )
+            }
         }
 
     }) // app
