@@ -302,7 +302,6 @@ main.seigneurie .game2 .container {
           justify-content: space-evenly;
 }
 main.seigneurie .game2 .image {
-  height: 400px;
   margin-bottom: 20px;
 }
 main.seigneurie .game2 .image img {
@@ -310,7 +309,7 @@ main.seigneurie .game2 .image img {
   transition: -webkit-filter 5s;
   transition: filter 5s;
   transition: filter 5s, -webkit-filter 5s;
-  height: 30vh;
+  height: 40vh;
 }
 main.seigneurie .game2 .image .answer {
   font-size: 1.5em;
@@ -693,7 +692,6 @@ main.moderne .game2 .connectLines {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  min-height: 600px;
 }
 main.moderne .game2 .from > div {
   border-radius: 50%;

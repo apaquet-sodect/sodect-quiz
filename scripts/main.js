@@ -486,6 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             NextQuestion: function(answer = ""){
                 if(this.doingTransition){ return }
+                let delay = 1300
                 if(answer != ""){
                     let currQuestion = this.currGameData.question
                     let correctAnswer = this.currGameData.objects[currQuestion].r
@@ -499,6 +500,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         this.currGameData.objects[currQuestion].guessed = false
                         SoundWrong()
                     }
+                }else{
+                    delay = 0;
+                    RandomSoundPop();
                 }
                 let cantQuestions = this.currGameData.objects.length
                 let currCuestion =  this.currGameData.question
@@ -515,13 +519,13 @@ document.addEventListener("DOMContentLoaded", () => {
                      setTimeout(function(){
                          self.doingTransition = false
                          self.message.show = true
-                     }, 1300)
+                     }, delay)
                 }else{
                     let self = this
                     setTimeout(function(){
                         self.doingTransition = false
                         self.currGameData.question++
-                    }, 1300)
+                    }, delay)
 
                 }
 
