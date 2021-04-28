@@ -108,7 +108,7 @@
 
             <div class="voyageurs game1" v-show="capsule=='voyageurs' && game==1">
                 <div class="container">
-                    <h2>À quel animal appartient cette fourrure ? </h2>
+                    <h2>Trace une ligne pour associer la silhouette de chaque animal sa fourrure.</h2>
                 </div>
                 <div class="connectLines container">
                     <div class="linesContainer" v-bind:style="{ left: message.show ? '-100vw' : '0px' }">
@@ -162,6 +162,9 @@
 
 
             <div class="moulins game1" v-show="capsule=='moulins' && game==1">
+                <div class="container">
+                    <h2>Quelle est ma fonction ?  Associe l’image du moulin à sa fonction.</h2>
+                </div>
                 <div class="connectLines">
                     <div class="linesContainer"  v-bind:style="{ left: message.show ? '-100vw' : '0px' }">
                     </div>
@@ -176,6 +179,9 @@
 
 
             <div class="moulins game2" v-show="capsule=='moulins' && game==2">
+                <div class="container">
+                    <h2>Associer l’ingrédient à la couleur de laine qu’il produit.</h2>
+                </div>
                 <div class="connectLines">
                     <div class="linesContainer"  v-bind:style="{ left: message.show ? '-100vw' : '0px' }">
                     </div>
@@ -232,7 +238,7 @@
 
             <div class="moderne game2" v-show="capsule=='moderne' && game==2">
                 <div class="container">
-                    <h2>Identifie les objets qui font partie du quotidien des habitants de la Nouvelle-France entre 1645 – 1763. </h2>
+                    <h2>Autour des années 1890, Terrebonne connait un important boom industriel. Plusieurs nouvelles technologies feront leur entrée à Terrebonne. Associez l’année à ces inventions événements majeures :</h2>
                 </div>
                 <div class="connectLines container">
                     <div class="linesContainer"  v-bind:style="{ left: message.show ? '-100vw' : '0px' }">

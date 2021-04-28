@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             },
                         ]
                     },{
-                        title:"CARRÉ AUX DATES",
+                        title:"ÉVÉNEMENTS MARQUANTS",
                         winMessage: "Bravo !",
                         connectLines: null,
                         linesType: "horizontal",

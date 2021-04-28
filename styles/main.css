@@ -519,8 +519,7 @@ main.moulins .game1 {
   height: 100%;
 }
 main.moulins .game1 .connectLines {
-  height: 100%;
-  min-height: 700px;
+  height: calc(100vh - 300px);
 }
 main.moulins .game1 .connectLines .from > div {
   border-color: #fff !important;
@@ -554,8 +553,7 @@ main.moulins .game2 {
   height: 100%;
 }
 main.moulins .game2 .connectLines {
-  height: 100%;
-  min-height: 700px;
+  height: calc(100vh - 300px);
 }
 main.moulins .game2 .connectLines .to > div {
   border-color: #fff !important;
