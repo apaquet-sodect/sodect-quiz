@@ -92,7 +92,7 @@
                             <h2>{{item.q}}</h2>
                             <div v-bind:class="{'animate__animated animate__headShake': item.guessed === false}">
                                 <a href="#" @click="NextQuestion('seigneur')">Seigneur</a>
-                                <a href="#" @click="NextQuestion('censitaires')">Censitaires</a>
+                                <a href="#" @click="NextQuestion('censitaire')">Censitaire</a>
                             </div>
 
                             <svg class="checkmark" v-bind:class="{animate: item.guessed}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -108,7 +108,7 @@
 
             <div class="voyageurs game1" v-show="capsule=='voyageurs' && game==1">
                 <div class="container">
-                    <h2>Trace une ligne pour associer la silhouette de chaque animal sa fourrure.</h2>
+                    <h2>Trace une ligne pour associer la silhouette de chaque animal à sa fourrure.</h2>
                 </div>
                 <div class="connectLines container">
                     <div class="linesContainer" v-bind:style="{ left: message.show ? '-100vw' : '0px' }">

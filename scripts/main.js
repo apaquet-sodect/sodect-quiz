@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     objects: [
                         {
                             name: "auto",
-                            title: "Veille auto",
+                            title: "Vieille auto",
                             correct: false,
                             guessed: false
                         },
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         },
                         {
                             name: "chaplet",
-                            title: "Chaplet",
+                            title: "Chapelet",
                             correct: true,
                             guessed: false
                         },
@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     objects:[
                         {q: "En moyenne, combien d’enfants retrouve-t-on par famille ?", a: "Six", blur: true, img: "q1.jpg"},
                         {q: "Les premières seigneuries font face à un cours d’eau. Celle de Terrebonne longe la rivière des Mille-Îles, autrefois nommée _________________", a: "La rivière Jésus", blur: true, img: "q2.jpg"},
-                        {q: "Selon l’état et L’Église en Nouvelle-France, un bon habitant est un ______________ pratiquant et obéissant, attaché à sa langue et qui cultive sa terre en travaillant dur.", a:"Catholique", blur: true, img: "q3.jpg"},
-                        {q: "Quand le censitaire fait moudre son blé au moulin, il doit donner une partie au seigneur. Combien de sacs de blé doit-il donner au seigneur ? __________________", a: "1 sac sur 14", blur: true, img: "q4.jpg"},
+                        {q: "Selon l’État et l’Église en Nouvelle-France, un bon habitant est un ______________ pratiquant et obéissant, attaché à sa langue et qui cultive sa terre en travaillant dur.", a:"Catholique", blur: true, img: "q3.jpg"},
+                        {q: "Quand le censitaire fait moudre son blé au moulin, il doit en donner une partie au seigneur. Combien de sacs de blé doit-il donner au seigneur ? __________________", a: "1 sac sur 14", blur: true, img: "q4.jpg"},
                         {q: "À quelle activité les colons consacrent-ils la majeure partie de leur temps ?", a: "Aux travaux agricoles", blur: true, img: "q5.jpg"},
                     ]
                 }, {
@@ -113,10 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     question : 0,
                     objects:[
                         {q: "Il a toujours le premier banc à l’église. ", r: "seigneur", guessed: undefined},
-                        {q: "Il peut donner sa terre à ses enfants ou la vendre. ", r: "censitaires", guessed: undefined},
-                        {q: "Il peut avoir son propre four. ", r: "censitaires" , guessed: undefined},
+                        {q: "Il peut donner sa terre à ses enfants ou la vendre. ", r: "censitaire", guessed: undefined},
+                            {q: "Il peut avoir son propre four. ", r: "censitaire" , guessed: undefined},
                         {q: "Il doit construire un moulin à farine. ", r: "seigneur", guessed: undefined},
-                        {q: "Il peut chasser et pêcher pour nourrir sa famille.", r:"censitaires" , guessed: undefined},
+                        {q: "Il peut chasser et pêcher pour nourrir sa famille.", r:"censitaire" , guessed: undefined},
                         {q: "Il doit jurer fidélité au roi.", r: "seigneur", guessed: undefined}
                     ]
                 }],
@@ -156,11 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         score: 0,
                         question : 0,
                         objects:[
-                            {q: "Combien de peaux de castor as-tu besoin pour troquer un fusil?", r: "12 peaux de castor", other: ["4 peaux de castor", "10 peaux de castor"], guessed: undefined},
-                            {q: "Tu as besoin de poudre noire pour ton fusil. Combien de peaux de castor as-tu besoin pour t’en procurer?", r: "1 peau de castor ", other: ["2 peaux de castor", "5 peaux de castor"], guessed: undefined},
-                            {q: "Tu veux une marmite de quatre litres pour faire bouillir ton eau d’érable. Combien de peaux de castors as-tu besoin pour te la procurer? ", r: "18 peaux de castor", other: ["9 peaux de castor", "15 peaux de castor"], guessed: undefined},
-                            {q: "Combien de peau de castor as-tu besoin pour acheter un tomahawk, une livre de perle, une paire de chaussures et deux chemises?", r: "7 peaux de castor ", other: ["4 peaux de castor", "9 peaux de castor"], guessed: undefined},
-                            {q: "Quelle est la valeur d’une peau de loup en peaux de castor? ", r: "10 peaux de castor ", other: ["3 peaux de castor", "8 peaux de castor"], guessed: undefined},
+                            {q: "De combien de peaux de castor as-tu besoin pour troquer un fusil ?", r: "12 peaux de castor", other: ["4 peaux de castor", "10 peaux de castor"], guessed: undefined},
+                            {q: "Tu as besoin de poudre noire pour ton fusil. De combien de peaux de castor as-tu besoin pour t’en procurer ?", r: "1 peau de castor ", other: ["2 peaux de castor", "5 peaux de castor"], guessed: undefined},
+                            {q: "Tu veux une marmite de quatre litres pour faire bouillir ton eau d’érable. De combien de peaux de castor as-tu besoin pour te la procurer ?", r: "18 peaux de castor", other: ["9 peaux de castor", "15 peaux de castor"], guessed: undefined},
+                            {q: "De combien de peau de castor as-tu besoin pour acheter un tomahawk, une livre de perles, une paire de chaussures et deux chemises ?", r: "7 peaux de castor ", other: ["4 peaux de castor", "9 peaux de castor"], guessed: undefined},
+                            {q: "Quelle est la valeur d’une peau de loup en peaux de castor ?", r: "10 peaux de castor ", other: ["3 peaux de castor", "8 peaux de castor"], guessed: undefined},
                         ]
                     },
                     {
