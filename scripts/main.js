@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 moderne: [
                     {
-                        title:"L’INDENCIE DE 1922",
+                        title:"L’INCENDIE DE 1922",
                         winMessage: "Bravo, tu connais bien l'histoire de l'incendie de 1922 !",
                         objects:[
                             {
